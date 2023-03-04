@@ -28,3 +28,4 @@
   * homeFragment collapsingToolbar 완성
   * myPage 화면 구성 및 myPage 내부 3개의 fragment로 구성된 tapLayout 구성
   * 전화번호인증 로그인 구현
+</br>
