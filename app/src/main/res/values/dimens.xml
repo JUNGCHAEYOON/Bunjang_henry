@@ -2,4 +2,10 @@
     <!-- Default screen margins, per the Android Design guidelines. -->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
+    <dimen name="activity_vertical_margin_wide">32dp</dimen>
+    <dimen name="login_viewpager_vertical">500dp</dimen>
+    <dimen name="login_btn_kakao_padding">18dp</dimen>
+    <dimen name="login_btn_kakao_radius">40dp</dimen>
+    <dimen name="bottom_sheet_radius">30dp</dimen>
+    <dimen name="toolbar_icon_size">40dp</dimen>
 </resources>

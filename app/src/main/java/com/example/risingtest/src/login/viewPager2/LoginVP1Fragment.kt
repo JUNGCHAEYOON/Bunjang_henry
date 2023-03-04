@@ -1,13 +1,13 @@
-package com.example.risingtest.src.main.myPage
+package com.example.risingtest.src.login.viewPager2
 
 import android.os.Bundle
 import android.view.View
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
-import com.example.risingtest.databinding.FragmentMyPageBinding
+import com.example.risingtest.databinding.FragmentLoginVP1Binding
 
-class MyPageFragment :
-    BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {
+class LoginVP1Fragment :
+    BaseFragment<FragmentLoginVP1Binding>(FragmentLoginVP1Binding::bind, R.layout.fragment_login_v_p1) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
     }

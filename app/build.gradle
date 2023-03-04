@@ -55,4 +55,11 @@ dependencies {
     // SpinKit, LoadingDialog 구현시 사용
     implementation 'com.github.ybq:Android-SpinKit:1.4.0'
     implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+
+    // 뷰페이저, 점찍기
+    implementation 'androidx.viewpager2:viewpager2:1.0.0'
+    implementation 'com.tbuonomo:dotsindicator:4.3'
+
+    // 바텀시트 다이얼로그
+    implementation 'com.google.android.material:material:1.9.0-alpha02'
 }
