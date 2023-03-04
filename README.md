@@ -2,6 +2,7 @@
 </br>
 
 * 기획서상 진행상황
+  * 1주차 첫번째 검사 전까지 진행률 (25%)
   * mvp 템플릿 기본 구조 적용하여 applicationClass 를 비롯한 baseClass 작성
   * splash - login - main 으로 이어지는 기본적인 도메인 구성
   * splash 화면
