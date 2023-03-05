@@ -33,4 +33,5 @@
     <dimen name="profile_image_size">50dp</dimen>
     <dimen name="mypage_bungaepoint_radius">5dp</dimen>
     <dimen name="mypage_bold_number">18dp</dimen>
+    <dimen name="mypage_box_size">80dp</dimen>
 </resources>

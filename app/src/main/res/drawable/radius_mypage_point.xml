@@ -9,5 +9,5 @@
         android:topRightRadius="@dimen/mypage_bungaepoint_radius" />
     <stroke
         android:width="1dp"
-        android:color="@color/deepgrey" />
+        android:color="@color/whitegrey" />
 </shape>
