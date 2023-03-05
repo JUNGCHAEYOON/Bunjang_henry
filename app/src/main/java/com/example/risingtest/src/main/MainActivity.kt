@@ -1,15 +1,15 @@
 package com.example.risingtest.src.main
 
-import androidx.appcompat.app.AppCompatActivity
+import android.content.Intent
 import android.os.Bundle
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityMainBinding
-import com.example.risingtest.src.main.add.AddFragment
+import com.example.risingtest.src.main.add.AddActivity
 import com.example.risingtest.src.main.bungaetalk.BungaetalkFragment
 import com.example.risingtest.src.main.home.HomeFragment
 import com.example.risingtest.src.main.myPage.MyPageFragment
-import com.example.risingtest.src.main.search.SearchFragment
+import com.example.risingtest.src.main.search.SearchActivity
 
 class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::inflate) {
 
@@ -17,7 +17,12 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
-
+        
+        // search버튼, add버튼의 경우 액티비티로 이동!
+        val intentSearch = Intent(this, SearchActivity::class.java)
+        val intentAdd = Intent(this, AddActivity::class.java)
+        
+        // 바텀네비 선언
         binding.mainBtmNav.run {
             setOnItemSelectedListener { item ->
                 when (item.itemId) {
@@ -27,14 +32,10 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                             .commitAllowingStateLoss()
                     }
                     R.id.menu_main_btm_nav_search -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, SearchFragment())
-                            .commitAllowingStateLoss()
+                        startActivity(intentSearch)
                     }
                     R.id.menu_main_btm_nav_add -> {
-                        supportFragmentManager.beginTransaction()
-                            .replace(R.id.main_frm, AddFragment())
-                            .commitAllowingStateLoss()
+                        startActivity(intentAdd)
                     }
                     R.id.menu_main_btm_nav_bungaetalk -> {
                         supportFragmentManager.beginTransaction()

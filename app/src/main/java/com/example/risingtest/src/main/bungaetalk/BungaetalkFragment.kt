@@ -8,7 +8,6 @@ import android.view.ViewGroup
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentBungaetalkBinding
-import com.example.risingtest.databinding.FragmentSearchBinding
 
 class BungaetalkFragment :
     BaseFragment<FragmentBungaetalkBinding>(FragmentBungaetalkBinding::bind, R.layout.fragment_bungaetalk) {

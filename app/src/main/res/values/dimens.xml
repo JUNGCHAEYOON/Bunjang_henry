@@ -1,11 +1,36 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
+
+<!--    activity-->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_vertical_margin_wide">32dp</dimen>
-    <dimen name="login_viewpager_vertical">500dp</dimen>
+    <dimen name="activity_horizontal_more_margin">30dp</dimen>
+    <dimen name="activity_top_margin">10dp</dimen>
+    <dimen name="activity_top_little_more_margin">20dp</dimen>
+    <dimen name="activity_top_more_margin">30dp</dimen>
+    <dimen name="activity_top_more_more_margin">50dp</dimen>
+    <dimen name="activity_margin">10dp</dimen>
+    <dimen name="activity_little_margin">20dp</dimen>
+    <dimen name="activity_more_margin">30dp</dimen>
+    <dimen name="activity_large_margin">40dp</dimen>
+    <dimen name="activity_start_padding">20dp</dimen>
+    <dimen name="activity_end_padding">20dp</dimen>
+
+<!--    login-->
+    <dimen name="login_viewpager_vertical">508dp</dimen>
     <dimen name="login_btn_kakao_padding">18dp</dimen>
     <dimen name="login_btn_kakao_radius">40dp</dimen>
+
+<!--    bottom sheet-->
     <dimen name="bottom_sheet_radius">30dp</dimen>
-    <dimen name="toolbar_icon_size">40dp</dimen>
+
+<!--    home toolbar-->
+    <dimen name="toolbar_icon_size">30dp</dimen>
+    <dimen name="collapsing_toolbar_wide">300dp</dimen>
+
+<!--    my page-->
+    <dimen name="profile_image_size">50dp</dimen>
+    <dimen name="mypage_bungaepoint_radius">5dp</dimen>
+    <dimen name="mypage_bold_number">18dp</dimen>
 </resources>

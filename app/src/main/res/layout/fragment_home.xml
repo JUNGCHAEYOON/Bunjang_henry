@@ -1,5 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
@@ -7,5 +8,102 @@
     android:orientation="vertical"
     tools:context=".src.main.home.HomeFragment">
 
- 
+    <androidx.coordinatorlayout.widget.CoordinatorLayout
+        android:id="@+id/coordinatorLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:fitsSystemWindows="true"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <com.google.android.material.appbar.AppBarLayout
+            android:id="@+id/home_ab"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:fitsSystemWindows="true">
+
+            <com.google.android.material.appbar.CollapsingToolbarLayout
+                android:id="@+id/home_tb_wide"
+                android:layout_width="match_parent"
+                android:layout_height="@dimen/collapsing_toolbar_wide"
+                android:fitsSystemWindows="true"
+                android:minHeight="?attr/actionBarSize"
+                app:collapsedTitleTextColor="@color/black"
+                app:expandedTitleGravity="center"
+                app:layout_scrollFlags="scroll|exitUntilCollapsed|snap"
+                app:scrimVisibleHeightTrigger="156dp"
+                app:statusBarScrim="@android:color/transparent">
+
+                <ImageView
+                    android:layout_width="match_parent"
+                    android:layout_height="match_parent"
+                    android:background="@color/deepgrey"
+                    android:fitsSystemWindows="true"
+                    android:scaleType="centerCrop" />
+
+                <androidx.appcompat.widget.Toolbar
+                    android:id="@+id/home_tb_shrink"
+                    android:layout_width="match_parent"
+                    android:layout_height="?attr/actionBarSize"
+                    app:contentInsetStart="0dp"
+                    app:layout_collapseMode="pin">
+
+                    <androidx.constraintlayout.widget.ConstraintLayout
+                        android:layout_width="match_parent"
+                        android:layout_height="wrap_content">
+
+                        <ImageView
+                            android:id="@+id/home_btn_menu"
+                            android:layout_width="@dimen/toolbar_icon_size"
+                            android:layout_height="@dimen/toolbar_icon_size"
+                            android:layout_marginStart="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_all"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintStart_toStartOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/home_btn_search"
+                            android:layout_width="@dimen/toolbar_icon_size"
+                            android:layout_height="@dimen/toolbar_icon_size"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_search"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toStartOf="@+id/home_btn_add"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/white" />
+
+                        <ImageView
+                            android:id="@+id/home_btn_add"
+                            android:layout_width="@dimen/toolbar_icon_size"
+                            android:layout_height="@dimen/toolbar_icon_size"
+                            android:layout_marginEnd="@dimen/activity_horizontal_margin"
+                            android:src="@drawable/ic_alarm"
+                            app:layout_constraintBottom_toBottomOf="parent"
+                            app:layout_constraintEnd_toEndOf="parent"
+                            app:layout_constraintTop_toTopOf="parent"
+                            app:tint="@color/white" />
+
+                    </androidx.constraintlayout.widget.ConstraintLayout>
+                </androidx.appcompat.widget.Toolbar>
+
+            </com.google.android.material.appbar.CollapsingToolbarLayout>
+        </com.google.android.material.appbar.AppBarLayout>
+
+    </androidx.coordinatorlayout.widget.CoordinatorLayout>
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/coordinatorLayout">
+        <androidx.recyclerview.widget.RecyclerView
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"/>
+    </androidx.core.widget.NestedScrollView>
+
+
 </androidx.constraintlayout.widget.ConstraintLayout>

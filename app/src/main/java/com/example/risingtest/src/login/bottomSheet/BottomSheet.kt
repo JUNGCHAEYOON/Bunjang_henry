@@ -7,6 +7,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
 import android.widget.ImageView
+import android.widget.LinearLayout
 import android.widget.TextView
 import com.example.risingtest.R
 import com.example.risingtest.src.main.MainActivity
@@ -27,17 +28,17 @@ class BottomSheet() : BottomSheetDialogFragment() {
         super.onViewCreated(view, savedInstanceState)
 
         //페이스북으로 시작하기 버튼
-        view.findViewById<TextView>(R.id.login_btn_bottom_facebook).setOnClickListener {
+        view.findViewById<LinearLayout>(R.id.login_btn_bottom_facebook).setOnClickListener {
 
         }
 
         // 네이버로 시작하기 버튼
-        view.findViewById<TextView>(R.id.login_btn_bottom_naver).setOnClickListener {
+        view.findViewById<LinearLayout>(R.id.login_btn_bottom_naver).setOnClickListener {
 
         }
 
         //본인인증으로 시작하기 버튼
-        view.findViewById<TextView>(R.id.login_btn_bottom_bonin).setOnClickListener {
+        view.findViewById<LinearLayout>(R.id.login_btn_bottom_bonin).setOnClickListener {
             val intent = Intent(context,MainActivity::class.java)
             startActivity(intent)
         }

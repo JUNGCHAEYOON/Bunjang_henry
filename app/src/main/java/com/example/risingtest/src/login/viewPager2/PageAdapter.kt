@@ -15,8 +15,8 @@ class PageAdapter(private val fragmentActivity: FragmentActivity,
 
         return when(position){
             0 -> return LoginVP1Fragment()
-            1 -> return LoginVP1Fragment()
-            else -> return LoginVP1Fragment()
+            1 -> return LoginVP2Fragment()
+            else -> return LoginVP3Fragment()
         }
     }
 }

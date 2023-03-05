@@ -32,7 +32,12 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         // 뷰페이저 연결, 도트인디케이터 연결
         var adapter = PageAdapter(this, vpfragments)
         binding.loginVp2.adapter = adapter
-        binding.loginDi.setViewPager2(binding.loginVp2)
+        binding.loginDi.attachTo(binding.loginVp2)
+
+        /* kakao 로그인 버튼 */
+        binding.loginBtnKakaoLogin.setOnClickListener {
+            //todo
+        }
 
         /* 다른 방법으로 로그인 버튼 */
         binding.loginBtnAnotherLogin.setOnClickListener {
