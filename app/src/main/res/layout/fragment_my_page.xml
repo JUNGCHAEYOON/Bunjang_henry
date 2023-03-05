@@ -192,177 +192,198 @@
     </LinearLayout>
 
     <HorizontalScrollView
-        android:scrollbars="none"
+        android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:scrollbars="none"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/linearLayout2">
+
         <LinearLayout
-            android:layout_margin="@dimen/activity_vertical_margin"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:layout_margin="@dimen/activity_vertical_margin"
             android:orientation="horizontal">
+
             <LinearLayout
-                android:background="@drawable/radius_grey"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
-                <TextView
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="택배"/>
-                <TextView
-                    android:textColor="@color/black"
-                    android:textStyle="bold"
-                    android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="신청/관리"/>
-            </LinearLayout>
-            <LinearLayout
                 android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
-                android:layout_width="@dimen/mypage_box_size"
-                android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="평점"/>
+                    android:text="택배" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="신청/관리"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0.0"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="거래내역"/>
+                    android:text="평점" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0.0"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="팔로워"/>
+                    android:text="거래내역" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="팔로잉"/>
+                    android:text="팔로워" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="안전결제"/>
+                    android:text="팔로잉" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="0"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="오픈일"/>
+                    android:text="안전결제" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="0"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
-                    android:layout_width="wrap_content"
-                    android:layout_height="wrap_content"
-                    android:text="+367"/>
+                    android:textStyle="bold" />
             </LinearLayout>
 
             <LinearLayout
-                android:background="@drawable/radius_grey"
-                android:layout_marginStart="8dp"
                 android:layout_width="@dimen/mypage_box_size"
                 android:layout_height="@dimen/mypage_box_size"
-                android:orientation="vertical"
-                android:gravity="center">
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
                 <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="본인인증"/>
+                    android:text="오픈일" />
+
                 <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="+367"
                     android:textColor="@color/black"
-                    android:textStyle="bold"
                     android:textSize="16dp"
+                    android:textStyle="bold" />
+            </LinearLayout>
+
+            <LinearLayout
+                android:layout_width="@dimen/mypage_box_size"
+                android:layout_height="@dimen/mypage_box_size"
+                android:layout_marginStart="8dp"
+                android:background="@drawable/radius_grey"
+                android:gravity="center"
+                android:orientation="vertical">
+
+                <TextView
                     android:layout_width="wrap_content"
                     android:layout_height="wrap_content"
-                    android:text="ok"/>
+                    android:text="본인인증" />
+
+                <TextView
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:text="ok"
+                    android:textColor="@color/black"
+                    android:textSize="16dp"
+                    android:textStyle="bold" />
             </LinearLayout>
         </LinearLayout>
 
     </HorizontalScrollView>
+    
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
