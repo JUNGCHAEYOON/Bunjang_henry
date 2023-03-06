@@ -8,11 +8,17 @@
     tools:context=".src.main.myPage.mybungae.panmae.panmaeVp2.PmJunFragment"
     android:gravity="center"
     android:orientation="vertical">
+
     <ImageView
+        android:layout_marginTop="150dp"
         android:layout_width="100dp"
         android:layout_height="100dp"
-        android:src="@drawable/image_nummul" />
+        android:src="@drawable/image_nummul"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
     <TextView
+        android:layout_marginBottom="150dp"
         android:layout_marginTop="40dp"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
