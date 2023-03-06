@@ -5,6 +5,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@color/white"
     tools:context=".src.main.myPage.MyPageFragment">
 
     <androidx.appcompat.widget.Toolbar
@@ -34,7 +35,7 @@
             <ImageView
                 android:id="@+id/mypage_btn_upload"
                 android:layout_width="20dp"
-                android:layout_height="@dimen/toolbar_icon_size"
+                android:layout_height="20dp"
                 android:layout_marginEnd="@dimen/activity_vertical_margin"
                 android:src="@drawable/ic_mypage_upload"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -45,7 +46,7 @@
             <ImageView
                 android:id="@+id/mypage_btn_3point"
                 android:layout_width="20dp"
-                android:layout_height="@dimen/toolbar_icon_size"
+                android:layout_height="20dp"
                 android:layout_marginEnd="@dimen/activity_vertical_margin"
                 android:src="@drawable/ic_mypage_3point"
                 app:layout_constraintBottom_toBottomOf="parent"
@@ -192,6 +193,7 @@
     </LinearLayout>
 
     <HorizontalScrollView
+        android:layout_marginTop="@dimen/activity_horizontal_margin"
         android:id="@+id/horizontalScrollView"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
@@ -383,7 +385,53 @@
         </LinearLayout>
 
     </HorizontalScrollView>
-    
+
+    <LinearLayout
+        android:layout_margin="@dimen/activity_vertical_margin"
+        android:id="@+id/linearLayout3"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@drawable/radius_mypage_point"
+        app:layout_constraintTop_toBottomOf="@+id/horizontalScrollView"
+        tools:layout_editor_absoluteX="16dp">
+
+        <androidx.viewpager2.widget.ViewPager2
+            android:id="@+id/mypage_vp2_bonus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="10dp" />
+    </LinearLayout>
+
+    <com.google.android.material.tabs.TabLayout
+        android:layout_marginTop="@dimen/activity_top_more_margin"
+        app:tabTextColor="@color/deepgrey"
+        app:tabPadding="0dp"
+        app:tabSelectedTextColor="@color/black"
+        app:tabIndicatorFullWidth="false"
+        app:tabIndicatorColor="@color/black"
+        app:tabIndicatorHeight="4dp"
+        android:id="@+id/mypage_tl"
+        android:layout_width="@dimen/mypage_tl_size"
+        android:layout_height="wrap_content"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/linearLayout3" />
+
+    <TextView
+        android:id="@+id/tvblack"
+        android:layout_width="match_parent"
+        android:layout_height="1dp"
+        android:background="@color/whitegrey"
+        app:layout_constraintBottom_toTopOf="@+id/mypage_vp2_mybungae"
+        app:layout_constraintTop_toBottomOf="@+id/mypage_tl" />
+
+    <androidx.viewpager2.widget.ViewPager2
+        android:id="@+id/mypage_vp2_mybungae"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tvblack" />
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

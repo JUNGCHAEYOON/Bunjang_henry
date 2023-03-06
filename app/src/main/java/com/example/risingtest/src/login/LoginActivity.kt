@@ -3,13 +3,12 @@ package com.example.risingtest.src.login
 import android.os.Bundle
 import androidx.fragment.app.Fragment
 import com.example.risingtest.config.BaseActivity
-import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.ActivityLoginBinding
 import com.example.risingtest.src.login.bottomSheet.BottomSheet
 import com.example.risingtest.src.login.viewPager2.LoginVP1Fragment
 import com.example.risingtest.src.login.viewPager2.LoginVP2Fragment
 import com.example.risingtest.src.login.viewPager2.LoginVP3Fragment
-import com.example.risingtest.src.login.viewPager2.PageAdapter
+import com.example.risingtest.src.login.viewPager2.LoginPageAdapter
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
 
@@ -30,7 +29,7 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         vpfragments.add(vp3fragment)
 
         // 뷰페이저 연결, 도트인디케이터 연결
-        var adapter = PageAdapter(this, vpfragments)
+        var adapter = LoginPageAdapter(this, vpfragments)
         binding.loginVp2.adapter = adapter
         binding.loginDi.attachTo(binding.loginVp2)
 
