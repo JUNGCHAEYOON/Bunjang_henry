@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.coordinatorlayout.widget.CoordinatorLayout
+    android:layout_marginStart="15dp"
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="@dimen/add_pic_size"
+    android:layout_height="@dimen/add_pic_size">
+    <ImageView
+        android:id="@+id/add_iv_rv_item"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:background="@color/red"/>
+</androidx.coordinatorlayout.widget.CoordinatorLayout>

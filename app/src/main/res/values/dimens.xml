@@ -17,6 +17,9 @@
     <dimen name="activity_start_padding">20dp</dimen>
     <dimen name="activity_end_padding">20dp</dimen>
 
+<!--    add-->
+    <dimen name="add_pic_size">65dp</dimen>
+
 <!--    login-->
     <dimen name="login_viewpager_vertical">508dp</dimen>
     <dimen name="login_btn_kakao_padding">18dp</dimen>

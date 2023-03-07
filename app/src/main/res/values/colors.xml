@@ -8,8 +8,11 @@
     <color name="white">#FFFFFF</color>
     <color name="black">#000000</color>
     <color name="whitewhitegrey">#F3F3F3</color>
+    <color name="whitemiddlegrey">#EEEEEE</color>
     <color name="whitegrey">#DDDDDD</color>
+    <color name="middlegrey">#BBBBBB</color>
     <color name="deepgrey">#AAAAAA</color>
+    <color name="deepdeepgrey">#888888</color>
     <color name="kakaoyellow">#FEE500</color>
 
     <color name="whiteForBackground">#FFFFFF</color>
@@ -17,6 +20,8 @@
     <color name="redForText">#d9534f</color>
 
     <color name="red">#ff3366</color>
+    <color name="realred">#ff0000</color>
+    <color name="deepred">#dd0000</color>
     <color name="mint">#33ffff</color>
     <color name="deepmint">#20b2aa</color>
 

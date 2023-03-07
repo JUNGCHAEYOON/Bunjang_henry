@@ -41,6 +41,7 @@
             android:theme="@style/AppTheme.NoActionBar" />
         <activity
             android:name=".src.main.add.AddActivity"
+            android:parentActivityName=".src.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
