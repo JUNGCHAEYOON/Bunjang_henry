@@ -19,6 +19,7 @@
 
 <!--    add-->
     <dimen name="add_pic_size">65dp</dimen>
+    <dimen name="add_nametag_size">60dp</dimen>
 
 <!--    login-->
     <dimen name="login_viewpager_vertical">508dp</dimen>

@@ -5,6 +5,7 @@ import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityAddBinding
+import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
 import com.example.risingtest.src.main.add.addrv.addItem
 import com.example.risingtest.src.main.add.addrv.addRecyclerAdapter
 
@@ -26,6 +27,11 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
 
         /* 사진 불러오기 최대 12장 저장하기 */
         getPicRecycler()
+
+        /* 옵션선택 버튼 클릭 */
+        binding.addBtnOption.setOnClickListener {
+            choiceOptionBtnClick()
+        }
     }
 
     /* 사진 불러오기 최대 12장 저장하기 */
@@ -57,5 +63,11 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         // 어댑터 연결
         rv.adapter = recyclerAdapter
         rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
+    }
+
+    // 옵션선택 버튼 클릭
+    fun choiceOptionBtnClick(){
+        val addBottomSheet = addBottomSheet()
+        addBottomSheet.show(supportFragmentManager,addBottomSheet.tag)
     }
 }
