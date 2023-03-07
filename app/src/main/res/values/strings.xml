@@ -19,6 +19,21 @@
     <string name="home_et_id">아이디를 입력하세요.</string>
     <string name="home_et_pw">비밀번호를 입력하세요.</string>
 
+    <string name="home_tv_fourteen_01">번개케어</string>
+    <string name="home_tv_fourteen_02">찜</string>
+    <string name="home_tv_fourteen_03">최근본상품</string>
+    <string name="home_tv_fourteen_04">내피드</string>
+    <string name="home_tv_fourteen_05">내폰시세</string>
+    <string name="home_tv_fourteen_06">우리동네</string>
+    <string name="home_tv_fourteen_07">전체메뉴</string>
+    <string name="home_tv_fourteen_08">나이키</string>
+    <string name="home_tv_fourteen_09">스니커즈</string>
+    <string name="home_tv_fourteen_10">팔로잉브랜드</string>
+    <string name="home_tv_fourteen_11">비즈빔</string>
+    <string name="home_tv_fourteen_12">아더에러</string>
+    <string name="home_tv_fourteen_13">블라인드..</string>
+    <string name="home_tv_fourteen_14">포인트모으기</string>
+
     <!-- MyPage -->
     <string name="my_page_sogae_pyunjip"><u>상점 소개 편집</u></string>
     <string name="my_page_nickname">상점9999호</string>

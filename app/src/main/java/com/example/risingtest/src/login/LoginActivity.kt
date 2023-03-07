@@ -1,6 +1,10 @@
 package com.example.risingtest.src.login
 
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
+import android.util.Log
+import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityLoginBinding
@@ -11,6 +15,9 @@ import com.example.risingtest.src.login.viewPager2.LoginVP3Fragment
 import com.example.risingtest.src.login.viewPager2.LoginPageAdapter
 
 class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::inflate) {
+
+    private var currentPosition = 0
+    private lateinit var handler : Handler
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
@@ -33,6 +40,14 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
         binding.loginVp2.adapter = adapter
         binding.loginDi.attachTo(binding.loginVp2)
 
+        // 뷰페이저 자동 스크롤
+        handler= Handler(Looper.getMainLooper()){
+            setPage()
+            true
+        }
+        Thread(PagerRunnable()).start()
+
+
         /* kakao 로그인 버튼 */
         binding.loginBtnKakaoLogin.setOnClickListener {
             //todo
@@ -44,5 +59,27 @@ class LoginActivity : BaseActivity<ActivityLoginBinding>(ActivityLoginBinding::i
             bottomSheetLogin.show(supportFragmentManager, bottomSheetLogin.tag)
         }
 
+    }
+
+    inner class PagerRunnable:Runnable{
+        override fun run() {
+            while(true){
+                try {
+                    Thread.sleep(2000)
+                    handler.sendEmptyMessage(0)
+                } catch (e : InterruptedException){
+                    Log.d("interupt", "interupt발생")
+                }
+            }
+        }
+    }
+
+    //페이지 변경하기
+    fun setPage() {
+        if(currentPosition==4) {
+            currentPosition=0
+        }
+        binding.loginVp2.setCurrentItem(currentPosition,true)
+        currentPosition++
     }
 }

@@ -16,11 +16,21 @@ import kotlin.math.abs
 import kotlin.math.min
 
 class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home){
+
+    // fourteen scroll 시 사용할 변수
+    companion object{
+        private var scroll_x : Int = 0
+        private var scroll_oldx : Int = 0
+    }
+
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
 
         // 콜랩싱 툴바 스크롤
         toolbarScroll()
+
+        // fourteen 스크롤
+        fourteenScroll()
 
         // 검색화면으로 이동
         binding.homeBtnSearch.setOnClickListener {
@@ -48,5 +58,28 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
             }
 
         })
+    }
+
+    // fourteen 버튼 스크롤시
+    fun fourteenScroll(){
+        binding.homeHsv.setOnScrollChangeListener { p0, p1, p2, p3, p4 ->
+            val view = p0.scrollBarSize
+            Log.d("view",view.toString())
+            if(p1>p3){
+                // 오른쪽으로 스크롤 을 때
+                scroll_x = p1
+                scroll_oldx = p3
+            }
+            else if(p1<p3){
+                // 왼쪽으로 스크롤 했을 때
+                scroll_x = p1
+                scroll_oldx = p3
+            }
+
+            if(scroll_x==11){
+            }else {
+                binding.homeScroll.translationX = scroll_x.toFloat()/5
+            }
+        }
     }
 }
