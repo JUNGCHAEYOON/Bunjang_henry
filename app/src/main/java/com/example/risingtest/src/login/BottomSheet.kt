@@ -1,16 +1,13 @@
-package com.example.risingtest.src.login.bottomSheet
+package com.example.risingtest.src.login
 
 import android.content.Intent
 import android.os.Bundle
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.Button
-import android.widget.ImageView
 import android.widget.LinearLayout
-import android.widget.TextView
 import com.example.risingtest.R
-import com.example.risingtest.src.main.MainActivity
+import com.example.risingtest.src.login.LoginGetToken.LoginGetTokenActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 
 class BottomSheet() : BottomSheetDialogFragment() {
@@ -39,7 +36,7 @@ class BottomSheet() : BottomSheetDialogFragment() {
 
         //본인인증으로 시작하기 버튼
         view.findViewById<LinearLayout>(R.id.login_btn_bottom_bonin).setOnClickListener {
-            val intent = Intent(context,MainActivity::class.java)
+            val intent = Intent(context, LoginGetTokenActivity::class.java)
             startActivity(intent)
         }
 

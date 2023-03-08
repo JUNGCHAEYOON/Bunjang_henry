@@ -9,14 +9,13 @@ import retrofit2.Response
 import retrofit2.http.GET
 
 class HomeService (val homeFragmentInterface: HomeFragmentInterface){
-    val token : String? = ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN,null)
 
     //HomeRetrofitInterface
     //@GET("/app/banners")
     //fun getBanners() : Call<HomeAdViewResponse>
     fun tryGetBanners(){
         val homeRetrofitInterface = ApplicationClass.sRetrofit.create(HomeRetrofitInterface::class.java)
-        homeRetrofitInterface.getBanners(token).enqueue(object : Callback<HomeAdViewResponse>{
+        homeRetrofitInterface.getBanners().enqueue(object : Callback<HomeAdViewResponse>{
             override fun onResponse(
                 call: Call<HomeAdViewResponse>,
                 response: Response<HomeAdViewResponse>

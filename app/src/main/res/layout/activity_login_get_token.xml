@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context=".src.login.LoginGetToken.LoginGetTokenActivity"
+    >
+
+    <androidx.appcompat.widget.Toolbar
+        android:id="@+id/toolbar2"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <ImageView
+            android:id="@+id/lgt_btn_back"
+            android:layout_width="@dimen/toolbar_icon_size"
+            android:layout_height="@dimen/toolbar_icon_size"
+            android:src="@drawable/ic_action_arrowback"
+            app:tint="@color/black" />
+    </androidx.appcompat.widget.Toolbar>
+
+    <LinearLayout
+        android:id="@+id/linearLayout6"
+        android:layout_width="match_parent"
+        android:layout_height="0dp"
+        android:layout_margin="@dimen/activity_horizontal_margin"
+        android:orientation="vertical"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/toolbar2">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="이름을\n입력해주세요"
+            android:textColor="@color/black"
+            android:textSize="28sp"
+            android:textStyle="bold" />
+
+        <LinearLayout
+            android:id="@+id/lgt_ll_idpw"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="30dp"
+                android:text="아이디"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/lgt_etv_id"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@null"
+                android:nextFocusDown="@id/lgt_etv_pw"
+                android:textCursorDrawable="@drawable/shape_rect_cursor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@color/black" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="10dp"
+                android:text="비밀번호"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/lgt_etv_pw"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@null"
+                android:textCursorDrawable="@drawable/shape_rect_cursor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@color/black" />
+
+        </LinearLayout>
+
+
+        <LinearLayout
+            android:id="@+id/lgt_ll_phonenumber"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:visibility="gone">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="30dp"
+                android:text="휴대폰번호"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/lgt_etv_phonenumber"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@null"
+                android:inputType="phone"
+                android:nextFocusDown="@id/lgt_etv_id"
+                android:textCursorDrawable="@drawable/shape_rect_cursor"
+                android:textSize="20sp"
+                android:textStyle="bold" />
+
+            <View
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@color/black" />
+
+        </LinearLayout>
+
+        <LinearLayout
+            android:id="@+id/lgt_ll_name"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:orientation="vertical">
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_more_margin"
+                android:text="이름"
+                android:textSize="13sp" />
+
+            <EditText
+                android:id="@+id/lgt_etv_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginHorizontal="@dimen/activity_margin"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:background="@null"
+                android:inputType="text"
+                android:nextFocusDown="@id/lgt_etv_phonenumber"
+                android:textCursorDrawable="@drawable/shape_rect_cursor"
+                android:textSize="20sp"
+                android:textStyle="bold">
+
+                <requestFocus />
+            </EditText>
+
+            <View
+                android:id="@+id/view_name"
+                android:layout_width="match_parent"
+                android:layout_height="1dp"
+                android:layout_marginStart="@dimen/activity_margin"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:layout_marginEnd="@dimen/activity_margin"
+                android:background="@color/black" />
+        </LinearLayout>
+
+    </LinearLayout>
+
+    <TextView
+        android:id="@+id/lgt_btn_register"
+        android:paddingTop="@dimen/activity_horizontal_margin"
+        android:paddingBottom="@dimen/activity_horizontal_margin"
+        android:layout_marginBottom="@dimen/activity_more_margin"
+        android:layout_marginStart="@dimen/activity_vertical_margin"
+        android:layout_marginEnd="@dimen/activity_vertical_margin"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:textStyle="bold"
+        android:textColor="@color/white"
+        android:background="@drawable/enable_button_color"
+        android:text="다음"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent" />
+
+</androidx.constraintlayout.widget.ConstraintLayout>

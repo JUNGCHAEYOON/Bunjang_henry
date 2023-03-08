@@ -7,8 +7,6 @@ import retrofit2.http.Header
 
 interface HomeRetrofitInterface {
     @GET("/app/home/banners")
-    fun getBanners(
-        @Header("X-ACCESS-TOKEN") token: String?,
-    ) : Call<HomeAdViewResponse>
+    fun getBanners() : Call<HomeAdViewResponse>
 
 }

@@ -46,7 +46,7 @@
     <string name="bonus_body3">최대 12월 할부 무이자 카드 혜택</string>
     <string name="panmae_ilgwal"><u>일괄편집</u></string>
 
-<!--    add-->
+    <!--    add-->
     <string name="add_tag">\u0023 태그</string>
     <string name="add_price">\u20A9 가격</string>
     <string name="add_explanation">- 구매시기\n- 브랜드/모델명\n- 제품의 상태(사용감, 하자 유무 등)\n* 서로가 믿고 거래할 수 있도록, 자세한 정보와 다양한각도의 상품 사진을 올려주세요. \n\n안전하고 건전한 거래 환경을 위해 과학기술정보통신부, 한국인터넷진흥원과 번개장터(주)가 함께합니다.</string>
@@ -62,5 +62,14 @@
     <string name="phone_number">휴대폰번호</string>
     <!-- TODO: Remove or change this placeholder text -->
     <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_login_get_token">LoginGetTokenActivity</string>
+    <!-- Strings used for fragments for navigation -->
+    <string name="first_fragment_label">First Fragment</string>
+    <string name="second_fragment_label">Second Fragment</string>
+    <string name="next">Next</string>
+    <string name="previous">Previous</string>
+
+    <string name="hello_first_fragment">Hello first fragment</string>
+    <string name="hello_second_fragment">Hello second fragment. Arg: %1$s</string>
 
 </resources>

@@ -4,11 +4,9 @@ import android.os.Bundle
 import android.os.Handler
 import android.os.Looper
 import android.util.Log
-import android.view.View
 import androidx.fragment.app.Fragment
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityLoginBinding
-import com.example.risingtest.src.login.bottomSheet.BottomSheet
 import com.example.risingtest.src.login.viewPager2.LoginVP1Fragment
 import com.example.risingtest.src.login.viewPager2.LoginVP2Fragment
 import com.example.risingtest.src.login.viewPager2.LoginVP3Fragment

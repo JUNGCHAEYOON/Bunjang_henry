@@ -16,7 +16,7 @@ class ApplicationClass : Application() {
     // val API_URL = "http://dev-api.test.com/"
 
     // 실 서버 주소
-    val API_URL = "https://prod.sprinsummer.site/"
+    val API_URL = "https://prod.springsummer.site"
 
     // 코틀린의 전역변수 문법
     companion object {

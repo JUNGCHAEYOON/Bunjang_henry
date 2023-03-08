@@ -1,7 +1,7 @@
 <resources>
     <!-- Default screen margins, per the Android Design guidelines. -->
 
-<!--    activity-->
+    <!--    activity-->
     <dimen name="activity_horizontal_margin">16dp</dimen>
     <dimen name="activity_vertical_margin">16dp</dimen>
     <dimen name="activity_vertical_margin_wide">32dp</dimen>
@@ -17,27 +17,28 @@
     <dimen name="activity_start_padding">20dp</dimen>
     <dimen name="activity_end_padding">20dp</dimen>
 
-<!--    add-->
+    <!--    add-->
     <dimen name="add_pic_size">65dp</dimen>
     <dimen name="add_nametag_size">60dp</dimen>
 
-<!--    login-->
+    <!--    login-->
     <dimen name="login_viewpager_vertical">508dp</dimen>
     <dimen name="login_btn_kakao_padding">18dp</dimen>
     <dimen name="login_btn_kakao_radius">40dp</dimen>
 
-<!--    bottom sheet-->
+    <!--    bottom sheet-->
     <dimen name="bottom_sheet_radius">30dp</dimen>
 
-<!--    home toolbar-->
+    <!--    home toolbar-->
     <dimen name="toolbar_icon_size">30dp</dimen>
     <dimen name="collapsing_toolbar_wide">300dp</dimen>
     <dimen name="fourteen_pic_size">35dp</dimen>
 
-<!--    my page-->
+    <!--    my page-->
     <dimen name="profile_image_size">50dp</dimen>
     <dimen name="mypage_bungaepoint_radius">5dp</dimen>
     <dimen name="mypage_bold_number">18dp</dimen>
     <dimen name="mypage_box_size">80dp</dimen>
     <dimen name="mypage_tl_size">220dp</dimen>
+    <dimen name="fab_margin">16dp</dimen>
 </resources>

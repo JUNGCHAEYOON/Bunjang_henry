@@ -8,8 +8,10 @@ import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
+import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentMyPageBinding
+import com.example.risingtest.src.login.LoginActivity
 import com.example.risingtest.src.main.alim.AlimActivity
 import com.example.risingtest.src.main.myPage.bonusbtn.Bonus1Fragment
 import com.example.risingtest.src.main.myPage.bonusbtn.Bonus2Fragment
@@ -43,6 +45,13 @@ class MyPageFragment :
 
         /* 나의번개 탭레이아웃 뷰페이저 */
         mybungaeTablayout()
+
+        /* 로그아웃 하기 버튼 */
+        binding.mypageBtn3point.setOnClickListener {
+            ApplicationClass.sSharedPreferences.edit().putString(ApplicationClass.X_ACCESS_TOKEN,null).apply()
+            startActivity(Intent(context,LoginActivity::class.java))
+            onDestroy()
+        }
     }
 
     /* 보너스 버튼 뷰페이저 */
