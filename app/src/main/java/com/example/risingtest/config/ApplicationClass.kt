@@ -16,7 +16,7 @@ class ApplicationClass : Application() {
     // val API_URL = "http://dev-api.test.com/"
 
     // 실 서버 주소
-    val API_URL = "https://jsonplaceholder.typicode.com/"
+    val API_URL = "https://prod.sprinsummer.site/"
 
     // 코틀린의 전역변수 문법
     companion object {
@@ -25,7 +25,6 @@ class ApplicationClass : Application() {
 
         // JWT Token Header 키 값
         val X_ACCESS_TOKEN = "X-ACCESS-TOKEN"
-
         // Retrofit 인스턴스, 앱 실행시 한번만 생성하여 사용합니다.
         lateinit var sRetrofit: Retrofit
     }

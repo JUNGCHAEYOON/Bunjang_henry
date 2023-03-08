@@ -9,7 +9,21 @@ import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
 import com.example.risingtest.src.main.add.addrv.addItem
 import com.example.risingtest.src.main.add.addrv.addRecyclerAdapter
 
-class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate) {
+class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate), addBottomSheet.addBottomSheetListener {
+
+    // post 로 넘겨줄 변수들
+    private lateinit var pic : ArrayList<Int>       // 사진 리스트
+    private lateinit var name : String              // 제품명
+    private lateinit var category : String          // 카테고리
+    private lateinit var tag : ArrayList<String>    // 태그 리스트
+    private var price : Int = 0                     // 가격
+    private var howmany : Int = 1                   // 수량
+
+    private var oldornew : Boolean = true           // true 중고      : false 새상품
+    private var getback : Boolean = true            // true 교환불가   : false 교환 가능
+    private lateinit var location : String          // 교환지역
+    private lateinit var info : String              // 설명
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -22,11 +36,18 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         // 글쓰기 버튼
         binding.addBtnAdd.setOnClickListener {
             showCustomToast("등록이 완료 되었습니다!")
+            
+            // POST 실행 함수
+            postAll()
+
+            //액티비티 종료
             finish()
         }
 
         /* 사진 불러오기 최대 12장 저장하기 */
-        getPicRecycler()
+        binding.addBtnAddpic.setOnClickListener {
+            getPicRecycler()
+        }
 
         /* 옵션선택 버튼 클릭 */
         binding.addBtnOption.setOnClickListener {
@@ -65,9 +86,40 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
-    // 옵션선택 버튼 클릭
+    /* 옵션선택 버튼 클릭 */
     fun choiceOptionBtnClick(){
         val addBottomSheet = addBottomSheet()
         addBottomSheet.show(supportFragmentManager,addBottomSheet.tag)
+    }
+    // 옵션선택 interface
+    override fun onDataPassOp(op1: Int, op2: Boolean, op3: Boolean, op4: String) {
+        //op1
+        binding.addTvHowmany.text = op1.toString() + "개"
+        
+        //op2
+        if(op2 == true) {
+            oldornew = true
+            binding.addTvJunggoOrNew.text = "중고상품"
+        }else{
+            oldornew = false
+            binding.addTvJunggoOrNew.text = "새상품"
+        }
+        
+        //op3
+        if(op3 == true){
+            getback = true
+            binding.addTvGyohwan.text = "교환불가"
+        }else{
+            getback = false
+            binding.addTvGyohwan.text = "교환가능"
+        }
+        
+        //op4 디폴트 마포
+        binding.addTvJiyeok.text = op4
+    }
+
+    /* 값들을 모두 post 하기 */
+    fun postAll(){
+
     }
 }

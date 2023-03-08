@@ -92,9 +92,10 @@
                 <TextView
                     android:id="@+id/add_btn_junggo"
                     android:padding="8dp"
-                    android:background="@drawable/radius_mypage_point"
+                    android:background="@drawable/radius_whitepink"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textColor="@color/realred"
                     android:text="중고상품"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"
@@ -135,9 +136,10 @@
                 <TextView
                     android:id="@+id/add_btn_bulga"
                     android:padding="8dp"
-                    android:background="@drawable/radius_mypage_point"
+                    android:background="@drawable/radius_whitepink"
                     android:gravity="center"
                     android:layout_weight="1"
+                    android:textColor="@color/realred"
                     android:text="불가"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

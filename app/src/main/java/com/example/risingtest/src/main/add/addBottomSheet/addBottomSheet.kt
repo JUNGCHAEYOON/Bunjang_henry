@@ -1,6 +1,7 @@
 package com.example.risingtest.src.main.add.addBottomSheet
 
 import android.app.Dialog
+import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.graphics.drawable.ColorDrawable
@@ -19,15 +20,28 @@ import android.widget.TextView
 import androidx.annotation.RequiresApi
 import com.example.risingtest.R
 import com.example.risingtest.src.main.MainActivity
+import com.example.risingtest.src.main.add.AddActivity
 import com.google.android.material.bottomsheet.BottomSheetDialogFragment
 import com.google.android.material.navigation.NavigationBarMenu
 
 class addBottomSheet() : BottomSheetDialogFragment() {
 
+    // 인터페이스 생성
+    interface addBottomSheetListener {
+        fun onDataPassOp(op1 : Int, op2 : Boolean, op3 : Boolean,op4 : String)
+    }
+    lateinit var dataPassListener : addBottomSheetListener
+
+    // 변수선언
     var option_howmany = 1
     var option_status = true        // true 중고, false 새상품
     var option_getBack = true       // true 불가, false 가능
     var option_location = "마포"     //디폴트 마포! 추후 선택지 설정예정
+
+    override fun onAttach(context: Context) {
+        super.onAttach(context)
+        dataPassListener = context as addBottomSheetListener //형변환
+    }
 
     override fun onCreateView(
         inflater: LayoutInflater,
@@ -87,7 +101,11 @@ class addBottomSheet() : BottomSheetDialogFragment() {
         // 선택 완료 버튼
         view.findViewById<TextView>(R.id.add_btn_finish).setOnClickListener {
             option_howmany = view.findViewById<TextView>(R.id.add_etv_howmany).text.toString().toInt()
-
+            
+            // 변수 4개 addActivity로 전달
+            dataPassListener.onDataPassOp(option_howmany,option_status,option_getBack,option_location)
+            
+            //dialog 종료
             dismiss()
         }
 

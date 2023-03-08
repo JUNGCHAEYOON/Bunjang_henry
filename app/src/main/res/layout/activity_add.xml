@@ -186,6 +186,8 @@
                 android:orientation="vertical">
 
                 <EditText
+                    android:inputType="number"
+                    android:maxLines="1"
                     android:id="@+id/edt_price"
                     android:layout_width="match_parent"
                     android:layout_height="wrap_content"

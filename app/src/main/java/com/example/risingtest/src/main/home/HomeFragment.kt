@@ -4,18 +4,33 @@ import android.content.Context
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
+import android.os.Handler
+import android.os.Looper
 import android.util.Log
 import android.view.View
+import androidx.appcompat.widget.Toolbar
+import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
+import com.example.risingtest.src.login.LoginActivity
+import com.example.risingtest.src.main.home.banner.AdArrayList
+import com.example.risingtest.src.main.home.banner.HomeAdViewPagerAdapter
+import com.example.risingtest.src.main.home.banner.HomeAdViewResponse
 import com.example.risingtest.src.main.search.SearchActivity
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
 import kotlin.math.min
+class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
+    HomeFragmentInterface{
 
-class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home){
+
+    // 배너 작성시 사용할 변수
+    var adArrayList = ArrayList<AdArrayList>()
+    private lateinit var ad_viewPager: HomeAdViewPagerAdapter
+    private lateinit var handler : Handler
+    private var currentPosition = 0
 
     // fourteen scroll 시 사용할 변수
     companion object{
@@ -25,6 +40,15 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        /* 홈화면 광고 배너 */
+        // handler 선언
+        handler=Handler(Looper.getMainLooper()){
+            setPage()
+            true
+        }
+        // 광고배너 실행
+        HomeService(this).tryGetBanners()
 
         // 콜랩싱 툴바 스크롤
         toolbarScroll()
@@ -36,6 +60,55 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
         binding.homeBtnSearch.setOnClickListener {
             val intent = Intent(context, SearchActivity::class.java)
             startActivity(intent)
+        }
+    }
+    /* 홈화면 광고 배너 */
+    fun adViewPager(){
+//        binding.homeTvBanner.bringToFront()
+
+        //리스트 생성
+//        adArrayList.add(AdArrayList("1",R.drawable.ic_fourteen_01))
+//        adArrayList.add(AdArrayList("2",R.drawable.ic_fourteen_02))
+//        adArrayList.add(AdArrayList("3",R.drawable.ic_fourteen_03))
+//        adArrayList.add(AdArrayList("4",R.drawable.ic_fourteen_04))
+//        adArrayList.add(AdArrayList("5",R.drawable.ic_fourteen_05))
+//        adArrayList.add(AdArrayList("6",R.drawable.ic_fourteen_06))
+//        adArrayList.add(AdArrayList("7",R.drawable.ic_fourteen_07))
+
+        // 뷰페이저어댑터 생성
+        ad_viewPager = HomeAdViewPagerAdapter(this.requireActivity(), adArrayList)
+        binding.homeVp.adapter = ad_viewPager
+
+        // 넘기는 효과 없애기
+        val child = binding.homeVp.getChildAt(0)
+        (child as? RecyclerView)?.overScrollMode = View.OVER_SCROLL_NEVER
+
+        // 뷰페이저 자동 넘기기
+        // 오류남 수정필요
+        val thread = Thread(PagerRunnable())
+        thread.start()
+    }
+
+    // 뷰페이저 position
+    fun setPage() {
+        if(currentPosition==7) {
+            currentPosition=0
+        }
+//        binding.homeVp.setCurrentItem(currentPosition,true)
+        currentPosition++
+    }
+
+    //2초 마다 페이지 넘기기
+    inner class PagerRunnable:Runnable{
+        override fun run() {
+            while(true){
+                try {
+                    Thread.sleep(2000)
+                    handler.sendEmptyMessage(0)
+                } catch (e : InterruptedException){
+                    Log.d("interupt", "interupt발생")
+                }
+            }
         }
     }
 
@@ -81,5 +154,23 @@ class HomeFragment : BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind
                 binding.homeScroll.translationX = scroll_x.toFloat()/5
             }
         }
+    }
+    
+    // 배너 불러오는 get함수
+    override fun onGetBannersSuccess(response: HomeAdViewResponse) {
+        showCustomToast(response.toString())
+//        var j = 0
+//        for(i in response.result?.bannerList!!){
+//            showCustomToast(i.toString())
+//
+//            adArrayList.add(AdArrayList(j.toString(),i.toString()))
+//            j += 1
+//        }
+
+//        adViewPager()
+    }
+
+    override fun onGetBannersFailure(message: String) {
+        showCustomToast("오류 : $message")
     }
 }
