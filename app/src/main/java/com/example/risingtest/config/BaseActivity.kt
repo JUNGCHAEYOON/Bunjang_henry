@@ -24,16 +24,6 @@ abstract class BaseActivity<B : ViewBinding>(private val inflate: (LayoutInflate
         super.onCreate(savedInstanceState)
         binding = inflate(layoutInflater)
         setContentView(binding.root)
-
-        // 상태바 투명하게
-//        window.apply {
-//            setFlags(
-//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//
-//            )
-//        }
-
     }
 
     // 로딩 다이얼로그, 즉 로딩창을 띄워줌.

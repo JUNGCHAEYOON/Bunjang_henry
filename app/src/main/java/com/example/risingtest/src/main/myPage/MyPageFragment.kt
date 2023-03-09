@@ -4,6 +4,7 @@ import android.content.Intent
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.LinearLayout
 import androidx.fragment.app.Fragment
 import androidx.viewpager2.widget.ViewPager2
 import com.bumptech.glide.Glide
@@ -24,10 +25,16 @@ import com.example.risingtest.src.main.myPage.mybungae.panmae.PanmaeFragment
 import com.google.android.material.tabs.TabLayout
 import com.google.android.material.tabs.TabLayoutMediator
 
+
 class MyPageFragment :
     BaseFragment<FragmentMyPageBinding>(FragmentMyPageBinding::bind, R.layout.fragment_my_page) {
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+//        // 상태바길이 넘어서 뷰 시작
+//        val statusBarHeightId = this.resources.getIdentifier("status_bar_height", "dimen", "android")
+//        val statusBarHeight = this.resources.getDimensionPixelSize(statusBarHeightId)
+//        binding.mypageLl.setPadding(0,statusBarHeight + 10,0,0)
 
         /* 툴바 버튼 */
         // 알림 액티비티로 이동

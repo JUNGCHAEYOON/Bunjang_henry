@@ -1,7 +1,6 @@
 package com.example.risingtest.src.main.home
 
-import android.app.StatusBarManager
-import android.content.Context
+import android.R.id.text1
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -9,7 +8,8 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import androidx.core.view.marginTop
+import android.view.ViewGroup
+import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
@@ -19,6 +19,7 @@ import com.example.risingtest.src.main.search.SearchActivity
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
 import kotlin.math.min
+
 
 class HomeFragment :
     BaseFragment<FragmentHomeBinding>(FragmentHomeBinding::bind, R.layout.fragment_home),
@@ -43,6 +44,17 @@ class HomeFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        // 상태바길이 넘어서 툴바 시작
+//        val statusBarHeightId = this.resources.getIdentifier("status_bar_height", "dimen", "android")
+//        val statusBarHeight = this.resources.getDimensionPixelSize(statusBarHeightId)
+////        binding.homeTbShrink.setPadding(0,statusBarHeight,0,0)
+//        val params = LinearLayout.LayoutParams(
+//            ViewGroup.LayoutParams.WRAP_CONTENT,
+//            ViewGroup.LayoutParams.WRAP_CONTENT
+//        )
+//        params.setMargins(0, statusBarHeight, 0, 0) // 왼쪽, 위, 오른쪽, 아래 순서입니다.
+//        binding.homeTbShrink.layoutParams = params
 
         // 콜랩싱 툴바 스크롤
         toolbarScroll()
@@ -72,20 +84,6 @@ class HomeFragment :
     override fun onPause() {
         super.onPause()
         onCheck = false
-    }
-
-    /**
-     * 상단 상태바 높이 계산 후 DP로 반환
-     * @param context Context
-     * @return Int(DP값)
-     */
-    fun getStatusBarHeightDP(context: Context): Int {
-        var result = 0
-        val resourceId: Int = context.resources.getIdentifier("status_bar_height", "dimen", "android")
-        if (resourceId > 0) {
-            result = context.resources.getDimension(resourceId).toInt()
-        }
-        return result
     }
 
     // 콜랩싱 툴바 스크롤시
