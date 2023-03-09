@@ -31,7 +31,7 @@
 
     <!--    home toolbar-->
     <dimen name="toolbar_icon_size">30dp</dimen>
-    <dimen name="collapsing_toolbar_wide">300dp</dimen>
+    <dimen name="collapsing_toolbar_wide_size">300dp</dimen>
     <dimen name="fourteen_pic_size">35dp</dimen>
 
     <!--    my page-->

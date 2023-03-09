@@ -31,10 +31,12 @@ class LoginGetTokenActivity :
         binding.lgtBtnRegister.setOnClickListener {
             if (binding.lgtEtvName.text.toString() != "") {
                 binding.lgtLlPhonenumber.visibility = View.VISIBLE
+                binding.lgtTvWhat.text = "전화번호를"
             }
 
             if (binding.lgtEtvPhonenumber.text.toString() != "") {
                 binding.lgtLlIdpw.visibility = View.VISIBLE
+                binding.lgtTvWhat.text = "아이디, 패스워드를"
             }
 
             if (binding.lgtEtvId.text.toString() != "" && binding.lgtEtvPw.text.toString() != "") {
@@ -67,6 +69,7 @@ class LoginGetTokenActivity :
             finish()
             LoginActivity().finish()
         }else{
+            userPhone = ""
             showCustomToast(response.message.toString())
         }
     }

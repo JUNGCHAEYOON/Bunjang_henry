@@ -1,7 +1,12 @@
 package com.example.risingtest.src.main
 
 import android.content.Intent
+import android.graphics.Color
+import android.os.Build
 import android.os.Bundle
+import android.view.View
+import android.view.WindowManager
+import androidx.core.view.WindowCompat
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityMainBinding
@@ -17,7 +22,7 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
         super.onCreate(savedInstanceState)
 
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
-        
+
         // search버튼, add버튼의 경우 액티비티로 이동!
         val intentSearch = Intent(this, SearchActivity::class.java)
         val intentAdd = Intent(this, AddActivity::class.java)

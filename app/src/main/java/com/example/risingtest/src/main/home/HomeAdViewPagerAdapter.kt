@@ -1,4 +1,4 @@
-package com.example.risingtest.src.main.home.banner
+package com.example.risingtest.src.main.home
 
 import android.content.Context
 import android.view.LayoutInflater
@@ -17,11 +17,8 @@ class HomeAdViewPagerAdapter(context: Context, private val adArrayList: ArrayLis
 
     //position에 해당하는 페이지 생성
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-
         binding = ViewPagerHomeAdBinding.inflate(inflater, container, false)
-        
-        // 이미지 넣기
-        Glide.with(container.context).load(adArrayList[position].imgUrl).into(binding.ivHomeAd)
+        Glide.with(container.context).load(adArrayList[position].imgUrl).fitCenter().into(binding.homeIvAd)
         container.addView(binding.root)
         return binding.root
     }

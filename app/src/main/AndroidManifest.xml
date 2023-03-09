@@ -33,7 +33,7 @@
             android:name=".src.main.MainActivity"
             android:exported="false"
             android:screenOrientation="portrait"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.MainNoActionBar" />
         <activity
             android:name=".src.main.search.SearchActivity"
             android:exported="false"
