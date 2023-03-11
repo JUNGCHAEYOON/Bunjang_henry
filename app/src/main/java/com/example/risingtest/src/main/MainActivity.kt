@@ -21,20 +21,6 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
-//        // 상태바 투명하게
-//        window.apply {
-//            setFlags(
-//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS,
-//                WindowManager.LayoutParams.FLAG_LAYOUT_NO_LIMITS
-//
-//            )
-//        }
-//        // 네비게이션바 만큼 paddingBottom
-//        val naviBarHeightId = this.resources.getIdentifier("navigation_bar_height", "dimen", "android")
-//        val naviHeight = this.resources.getDimensionPixelSize(naviBarHeightId)
-//        binding.mainCl.setPadding(0,0,0,naviHeight)
-
-
         supportFragmentManager.beginTransaction().replace(R.id.main_frm, HomeFragment()).commitAllowingStateLoss()
 
         // search버튼, add버튼의 경우 액티비티로 이동!

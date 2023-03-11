@@ -1,6 +1,5 @@
 package com.example.risingtest.src.main.home
 
-import android.R.id.text1
 import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
@@ -8,13 +7,11 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
-import android.view.ViewGroup
-import android.widget.LinearLayout
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
-import com.example.risingtest.src.main.home.banner.HomeAdViewResponse
+import com.example.risingtest.src.main.home.bannermodels.HomeAdViewResponse
 import com.example.risingtest.src.main.search.SearchActivity
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
@@ -44,6 +41,8 @@ class HomeFragment :
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+
+        onCheck = true
 
         // 상태바길이 넘어서 툴바 시작
 //        val statusBarHeightId = this.resources.getIdentifier("status_bar_height", "dimen", "android")

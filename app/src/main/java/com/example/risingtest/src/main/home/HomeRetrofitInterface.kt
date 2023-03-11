@@ -1,9 +1,8 @@
 package com.example.risingtest.src.main.home
 
-import com.example.risingtest.src.main.home.banner.HomeAdViewResponse
+import com.example.risingtest.src.main.home.bannermodels.HomeAdViewResponse
 import retrofit2.Call
 import retrofit2.http.GET
-import retrofit2.http.Header
 
 interface HomeRetrofitInterface {
     @GET("/app/home/banners")
