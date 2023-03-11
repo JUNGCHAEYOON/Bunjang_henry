@@ -7,11 +7,18 @@ import android.os.Handler
 import android.os.Looper
 import android.util.Log
 import android.view.View
+import androidx.recyclerview.widget.GridLayoutManager
+import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseFragment
 import com.example.risingtest.databinding.FragmentHomeBinding
 import com.example.risingtest.src.main.home.bannermodels.HomeAdViewResponse
+import com.example.risingtest.src.main.home.listRecycler.ParentAdapter
+import com.example.risingtest.src.main.home.listRecycler.ParentItem
+import com.example.risingtest.src.main.home.listRecycler.RecyclerAdapter
+import com.example.risingtest.src.main.home.listRecycler.RecyclerItem
+import com.example.risingtest.src.main.home.listmodels.*
 import com.example.risingtest.src.main.search.SearchActivity
 import com.google.android.material.appbar.AppBarLayout
 import kotlin.math.abs
@@ -70,6 +77,7 @@ class HomeFragment :
 
     override fun onResume() {
         super.onResume()
+        /* 광고 배너 */
         // 광고 자동 스크롤
         handler=Handler(Looper.getMainLooper()){
             setPage()
@@ -78,6 +86,9 @@ class HomeFragment :
 
         // 광고배너 실행
         HomeService(this).tryGetBanners()
+
+        /* 상품 리스트 */
+        HomeService(this).tryGetList()
     }
 
     override fun onPause() {
@@ -184,8 +195,163 @@ class HomeFragment :
 
         adViewPager(arr)
     }
-
     override fun onGetBannersFailure(message: String) {
         showCustomToast("오류 : $message")
+    }
+
+    // 리스트 불러오는 get 함수
+    override fun onGetListSuccess(response: HomeListResponse) {
+
+        /* 불러오기 */
+        //1
+        val response1 = response.result?.manPadding!!
+
+        // 큰 리싸이클러
+        val parentItemList = ArrayList<ParentItem>()
+        parentItemList.add(rvset1(response.result?.manPadding!!))
+        parentItemList.add(rvset2(response.result?.manShoes!!))
+        parentItemList.add(rvset3(response.result?.sneakers!!))
+        parentItemList.add(rvset4(response.result?.womenPadding!!))
+        parentItemList.add(rvset5(response.result?.womenShoes!!))
+
+        val parentAdapter = ParentAdapter(parentItemList)
+
+        // 어댑터 연결
+        binding.homeRvAll.adapter = parentAdapter
+        binding.homeRvAll.layoutManager = LinearLayoutManager(context, LinearLayoutManager.VERTICAL, false)
+
+    }
+    override fun onGetListsFailure(message: String) {
+        showCustomToast("오류 : $message")
+    }
+
+    fun rvset1(P : List<ManPadding?>) : ParentItem{
+        val itemlist = ArrayList<RecyclerItem>()
+        var name : String = ""
+        var j = 0
+        for(i in P){
+            if(j == 6){
+                break
+            }
+            itemlist.add(RecyclerItem(
+                i?.categoryTitle,
+                i?.id,
+                i?.price,
+                i?.safeCare,
+                i?.safePay,
+                i?.title,
+                i?.url
+            ))
+            name = i?.categoryTitle.toString()
+            j++
+        }
+        val recyclerAdapter = RecyclerAdapter(itemlist)
+        recyclerAdapter.notifyDataSetChanged()
+
+        return ParentItem(name, recyclerAdapter)
+    }
+
+    fun rvset2(P : List<ManShoe?>) : ParentItem{
+        val itemlist = ArrayList<RecyclerItem>()
+        var name : String = ""
+        var j = 0
+        for(i in P){
+            if(j == 6){
+                break
+            }
+            itemlist.add(RecyclerItem(
+                i?.categoryTitle,
+                i?.id,
+                i?.price,
+                i?.safeCare,
+                i?.safePay,
+                i?.title,
+                i?.url
+            ))
+            name = i?.categoryTitle.toString()
+            j++
+        }
+        val recyclerAdapter = RecyclerAdapter(itemlist)
+        recyclerAdapter.notifyDataSetChanged()
+
+        return ParentItem(name, recyclerAdapter)
+    }
+
+    fun rvset3(P : List<Sneaker?>) : ParentItem{
+        val itemlist = ArrayList<RecyclerItem>()
+        var name : String = ""
+        var j = 0
+        for(i in P){
+            if(j == 6){
+                break
+            }
+            itemlist.add(RecyclerItem(
+                i?.categoryTitle,
+                i?.id,
+                i?.price,
+                i?.safeCare,
+                i?.safePay,
+                i?.title,
+                i?.url
+            ))
+            name = i?.categoryTitle.toString()
+            j++
+        }
+        val recyclerAdapter = RecyclerAdapter(itemlist)
+        recyclerAdapter.notifyDataSetChanged()
+
+        return ParentItem(name, recyclerAdapter)
+    }
+
+    fun rvset4(P : List<WomenPadding?>) : ParentItem{
+        val itemlist = ArrayList<RecyclerItem>()
+        var name : String = ""
+        var j = 0
+        for(i in P){
+            if(j == 6){
+                break
+            }
+            itemlist.add(RecyclerItem(
+                i?.categoryTitle,
+                i?.id,
+                i?.price,
+                i?.safeCare,
+                i?.safePay,
+                i?.title,
+                i?.url
+            ))
+            name = i?.categoryTitle.toString()
+            j++
+        }
+        val recyclerAdapter = RecyclerAdapter(itemlist)
+        recyclerAdapter.notifyDataSetChanged()
+
+        return ParentItem(name, recyclerAdapter)
+    }
+
+    fun rvset5(P : List<WomenShoe?>) : ParentItem{
+        val itemlist = ArrayList<RecyclerItem>()
+        var name : String = ""
+        var j = 0
+        for(i in P){
+            if(j == 6){
+                break
+            }
+            itemlist.add(RecyclerItem(
+                i?.categoryTitle,
+                i?.id,
+                i?.price,
+                i?.safeCare,
+                i?.safePay,
+                i?.title,
+                i?.url
+            ))
+            name = i?.categoryTitle.toString()
+            j++
+        }
+        val recyclerAdapter = RecyclerAdapter(itemlist)
+        recyclerAdapter.notifyDataSetChanged()
+
+        return ParentItem(name, recyclerAdapter)
     }
 }

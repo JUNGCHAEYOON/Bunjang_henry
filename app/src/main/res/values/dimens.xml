@@ -34,6 +34,14 @@
     <dimen name="collapsing_toolbar_wide_size">300dp</dimen>
     <dimen name="fourteen_pic_size">35dp</dimen>
 
+<!--    homelist-->
+    <dimen name="home_list_size">120dp</dimen>
+    <dimen name="home_pay_hori">23dp</dimen>
+    <dimen name="home_pay_vert">30dp</dimen>
+    <dimen name="home_heart_hori">20dp</dimen>
+    <dimen name="home_heart_vert">20dp</dimen>
+
+
     <!--    my page-->
     <dimen name="profile_image_size">50dp</dimen>
     <dimen name="mypage_bungaepoint_radius">5dp</dimen>
