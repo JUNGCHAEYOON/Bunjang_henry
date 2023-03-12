@@ -1,5 +1,6 @@
 package com.example.risingtest.src.main.home.listRecycler
 
+import android.content.Intent
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,7 +11,7 @@ import com.bumptech.glide.Glide
 import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.risingtest.R
-import com.google.android.material.internal.ContextUtils.getActivity
+import com.example.risingtest.src.main.home.itemdomain.ItemDomainActivity
 
 class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
     RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
@@ -21,6 +22,11 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
     }
 
     override fun onBindViewHolder(holder: RecyclerViewHolder, position: Int) {
+        // 전체 아이템 클릭시
+        holder.itemView.setOnClickListener {
+            val intent = Intent(holder.itemView.context, ItemDomainActivity::class.java)
+            holder.itemView.context.startActivity(intent)
+        }
 
         // 이미지뷰
         Glide.with(holder.itemView.context).load(itemList[position].url).transform(CenterCrop(), RoundedCorners(10)).into(holder.homelist_iv_image)
@@ -62,10 +68,10 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
     }
 
     inner class RecyclerViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
-        val homelist_iv_image = itemView.findViewById<ImageView>(R.id.homelist_iv_image)
+        val homelist_iv_image = itemView.findViewById<ImageView>(R.id.ld_iv_image)
         val homelist_iv_heart = itemView.findViewById<ImageView>(R.id.homelist_iv_heart)
-        val homelist_iv_bungaepay = itemView.findViewById<ImageView>(R.id.homelist_iv_bungaepay)
-        val homelist_tv_price = itemView.findViewById<TextView>(R.id.homelist_tv_price)
+        val homelist_iv_bungaepay = itemView.findViewById<ImageView>(R.id.ld_iv_heart)
+        val homelist_tv_price = itemView.findViewById<TextView>(R.id.ld_tv_price)
         val homelist_tv_title = itemView.findViewById<TextView>(R.id.homelist_tv_title)
     }
 }

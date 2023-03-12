@@ -41,6 +41,8 @@
     <dimen name="home_heart_hori">20dp</dimen>
     <dimen name="home_heart_vert">20dp</dimen>
 
+<!--    listdomain-->
+    <dimen name="list_domain_item_size">240dp</dimen>
 
     <!--    my page-->
     <dimen name="profile_image_size">50dp</dimen>

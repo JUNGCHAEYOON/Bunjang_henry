@@ -1,7 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.constraintlayout.widget.ConstraintLayout
-    android:layout_marginStart="6dp"
-    android:layout_marginEnd="6dp"
+    android:layout_margin="6dp"
     xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
@@ -9,7 +8,7 @@
     android:layout_height="wrap_content">
 
     <ImageView
-        android:id="@+id/homelist_iv_image"
+        android:id="@+id/ld_iv_image"
         android:layout_width="match_parent"
         android:layout_height="@dimen/home_list_size"
         android:background="@color/whitepink"
@@ -19,12 +18,12 @@
         app:layout_constraintTop_toTopOf="parent" />
 
     <ImageView
-        android:id="@+id/homelist_iv_bungaepay"
+        android:id="@+id/ld_iv_heart"
         android:layout_width="@dimen/home_pay_vert"
         android:layout_height="@dimen/home_pay_hori"
         android:layout_margin="5dp"
         android:src="@drawable/ic_pay"
-        app:layout_constraintBottom_toBottomOf="@+id/homelist_iv_image"
+        app:layout_constraintBottom_toBottomOf="@+id/ld_iv_image"
         app:layout_constraintStart_toStartOf="parent" />
 
     <ImageView
@@ -33,11 +32,11 @@
         android:layout_height="@dimen/home_heart_hori"
         android:layout_margin="10dp"
         android:src="@drawable/ic_heart"
-        app:layout_constraintEnd_toEndOf="@+id/homelist_iv_image"
-        app:layout_constraintTop_toTopOf="@+id/homelist_iv_image" />
+        app:layout_constraintEnd_toEndOf="@+id/ld_iv_image"
+        app:layout_constraintTop_toTopOf="@+id/ld_iv_image" />
 
     <TextView
-        android:id="@+id/homelist_tv_price"
+        android:id="@+id/ld_tv_price"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="999999원"
@@ -45,7 +44,7 @@
         android:textSize="20dp"
         android:textStyle="bold"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homelist_iv_image" />
+        app:layout_constraintTop_toBottomOf="@+id/ld_iv_image" />
 
     <TextView
         android:id="@+id/homelist_tv_title"
@@ -54,5 +53,5 @@
         android:textSize="14dp"
         android:text="아이템 제목은 \n최대 두줄"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/homelist_tv_price" />
+        app:layout_constraintTop_toBottomOf="@+id/ld_tv_price" />
 </androidx.constraintlayout.widget.ConstraintLayout>
