@@ -44,6 +44,9 @@
 <!--    listdomain-->
     <dimen name="list_domain_item_size">240dp</dimen>
 
+<!--    itemdomain-->
+    <dimen name="item_domain_viewpager_size">400dp</dimen>
+
     <!--    my page-->
     <dimen name="profile_image_size">50dp</dimen>
     <dimen name="mypage_bungaepoint_radius">5dp</dimen>

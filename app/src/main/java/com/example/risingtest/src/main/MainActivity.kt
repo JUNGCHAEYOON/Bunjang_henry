@@ -38,9 +38,11 @@ class MainActivity : BaseActivity<ActivityMainBinding>(ActivityMainBinding::infl
                     }
                     R.id.menu_main_btm_nav_search -> {
                         startActivity(intentSearch)
+                        binding.mainBtmNav.selectedItemId = R.id.menu_main_btm_nav_home
                     }
                     R.id.menu_main_btm_nav_add -> {
                         startActivity(intentAdd)
+                        binding.mainBtmNav.selectedItemId = R.id.menu_main_btm_nav_home
                     }
                     R.id.menu_main_btm_nav_bungaetalk -> {
                         supportFragmentManager.beginTransaction()

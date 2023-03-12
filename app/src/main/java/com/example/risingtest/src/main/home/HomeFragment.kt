@@ -66,7 +66,7 @@ class HomeFragment :
         toolbarScroll()
 
         // fourteen 스크롤
-        fourteenScroll()
+//        fourteenScroll()
 
         // 검색화면으로 이동
         binding.homeBtnSearch.setOnClickListener {
@@ -119,22 +119,22 @@ class HomeFragment :
 
     // fourteen 버튼 스크롤시
     fun fourteenScroll() {
-        binding.homeHsv.setOnScrollChangeListener { p0, p1, p2, p3, p4 ->
-            val view = p0.scrollBarSize
-            Log.d("view", view.toString())
-            if (p1 > p3) {
+        binding.homeHsv.setOnScrollChangeListener { v, scrollX, scrollY, oldScrollX, oldScrollY ->
+            val view = v.scrollBarSize
+            Log.d("VVVVVVVVVVVVVVVVVVVVVVV", view.toString())
+            if (scrollX > oldScrollX) {
                 // 오른쪽으로 스크롤 을 때
-                scroll_x = p1
-                scroll_oldx = p3
-            } else if (p1 < p3) {
+                scroll_x = scrollX
+                scroll_oldx = oldScrollX
+            } else if (scrollX < oldScrollX) {
                 // 왼쪽으로 스크롤 했을 때
-                scroll_x = p1
-                scroll_oldx = p3
+                scroll_x = scrollX
+                scroll_oldx = oldScrollX
             }
 
             if (scroll_x == 11) {
             } else {
-                binding.homeScroll.translationX = scroll_x.toFloat() / 5
+                binding.homeScroll.translationX = scroll_x.toFloat()
             }
         }
     }
@@ -147,7 +147,7 @@ class HomeFragment :
             j++
         }
 
-        ad_viewPager = HomeAdViewPagerAdapter(this.requireActivity(), adArrayList)
+//        ad_viewPager = HomeAdViewPagerAdapter(this.requireActivity(), adArrayList)
         binding.homeVp.adapter = HomeAdViewPagerAdapter(this.requireActivity(), adArrayList)
         // 넘길 때 효과 제거
         val child = binding.homeVp.getChildAt(0)
@@ -250,7 +250,6 @@ class HomeFragment :
 
         return ParentItem(name, recyclerAdapter)
     }
-
     fun rvset2(P : List<ManShoe?>) : ParentItem{
         val itemlist = ArrayList<RecyclerItem>()
         var name : String = ""
@@ -276,7 +275,6 @@ class HomeFragment :
 
         return ParentItem(name, recyclerAdapter)
     }
-
     fun rvset3(P : List<Sneaker?>) : ParentItem{
         val itemlist = ArrayList<RecyclerItem>()
         var name : String = ""
@@ -302,7 +300,6 @@ class HomeFragment :
 
         return ParentItem(name, recyclerAdapter)
     }
-
     fun rvset4(P : List<WomenPadding?>) : ParentItem{
         val itemlist = ArrayList<RecyclerItem>()
         var name : String = ""
@@ -328,7 +325,6 @@ class HomeFragment :
 
         return ParentItem(name, recyclerAdapter)
     }
-
     fun rvset5(P : List<WomenShoe?>) : ParentItem{
         val itemlist = ArrayList<RecyclerItem>()
         var name : String = ""

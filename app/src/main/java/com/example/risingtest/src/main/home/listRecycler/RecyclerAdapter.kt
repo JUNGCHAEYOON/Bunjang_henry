@@ -12,6 +12,7 @@ import com.bumptech.glide.load.resource.bitmap.CenterCrop
 import com.bumptech.glide.load.resource.bitmap.RoundedCorners
 import com.example.risingtest.R
 import com.example.risingtest.src.main.home.itemdomain.ItemDomainActivity
+import java.text.DecimalFormat
 
 class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
     RecyclerView.Adapter<RecyclerAdapter.RecyclerViewHolder>() {
@@ -25,6 +26,7 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
         // 전체 아이템 클릭시
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ItemDomainActivity::class.java)
+            intent.putExtra("id",itemList[position].id)
             holder.itemView.context.startActivity(intent)
         }
 
@@ -33,16 +35,16 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
 
         // 하트
         val iv_heart = holder.homelist_iv_heart
-        iv_heart.setImageResource(R.drawable.ic_heart)
+        iv_heart.setImageResource(R.drawable.ic_action_whiteheart)
         iv_heart.setTag("false")
         iv_heart.setOnClickListener {
             when (iv_heart.getTag()) {
                 "false" -> {
-                    iv_heart.setImageResource(R.drawable.ic_redheart)
+                    iv_heart.setImageResource(R.drawable.ic_action_redheart)
                     iv_heart.setTag("true")
                 }
                 else -> {
-                    iv_heart.setImageResource(R.drawable.ic_heart)
+                    iv_heart.setImageResource(R.drawable.ic_action_whiteheart)
                     iv_heart.setTag("false")
                 }
 
@@ -57,7 +59,9 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
         }
 
         // 가격
-        holder.homelist_tv_price.text = itemList[position].price.toString() + "원"
+        val dec = DecimalFormat("#,###")
+        val buff = dec.format(itemList[position].price)
+        holder.homelist_tv_price.text = buff.toString() + "원"
 
         // 제목
         holder.homelist_tv_title.text = itemList[position].title

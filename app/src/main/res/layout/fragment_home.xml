@@ -1,15 +1,4 @@
 <?xml version="1.0" encoding="utf-8"?>
-<!--<androidx.constraintlayout.widget.ConstraintLayout -->
-<!--    xmlns:android="http://schemas.android.com/apk/res/android"-->
-<!--    xmlns:app="http://schemas.android.com/apk/res-auto"-->
-<!--    xmlns:tools="http://schemas.android.com/tools"-->
-<!--    android:fitsSystemWindows="true"-->
-<!--    android:layout_width="match_parent"-->
-<!--    android:layout_height="match_parent"-->
-<!--    android:background="@color/white"-->
-<!--    android:gravity="center"-->
-<!--    android:orientation="vertical"-->
-<!--    tools:context=".src.main.home.HomeFragment">-->
 
 <androidx.coordinatorlayout.widget.CoordinatorLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -49,426 +38,6 @@
                     app:layout_constraintEnd_toEndOf="parent"
                     app:layout_constraintStart_toStartOf="parent"
                     app:layout_constraintTop_toTopOf="parent" />
-
-                <HorizontalScrollView
-                    android:layout_marginTop="@dimen/activity_horizontal_margin"
-                    android:id="@+id/home_hsv"
-                    android:layout_width="match_parent"
-                    android:layout_height="wrap_content"
-                    android:fastScrollEnabled="true"
-                    android:fitsSystemWindows="true"
-                    android:scrollbarAlwaysDrawVerticalTrack="true"
-                    android:scrollbarDefaultDelayBeforeFade="500000"
-                    android:scrollbarFadeDuration="0"
-                    android:scrollbarStyle="outsideInset"
-                    android:scrollbars="none"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_vp">
-
-                    <TableLayout
-                        android:layout_width="match_parent"
-                        android:layout_height="wrap_content">
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="@dimen/activity_more_margin"
-                            android:layout_marginEnd="@dimen/activity_more_margin">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-                                <ImageView
-                                    android:id="@+id/iv_bungaecare"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_01"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_01"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_bungaecare" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_zzim"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_02"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_02"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_zzim" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_choegun"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_03"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_03"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_choegun" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_naefeed"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_04"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_04"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_naefeed" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_naeponsise"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_05"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_05"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_naeponsise" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_uridongnae"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_06"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_06"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_uridongnae" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_menu"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_07"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_07"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_menu" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </TableRow>
-
-                        <TableRow
-                            android:layout_width="match_parent"
-                            android:layout_height="match_parent"
-                            android:layout_marginStart="@dimen/activity_more_margin"
-                            android:layout_marginTop="@dimen/activity_more_margin"
-                            android:layout_marginEnd="@dimen/activity_more_margin">
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content">
-
-                                <ImageView
-                                    android:id="@+id/iv_nike"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_08"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_08"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_nike" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_sneakers"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_09"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_09"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_sneakers" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_followingbrand"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_10"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_10"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_followingbrand" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_vizvim"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_11"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_11"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_vizvim" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_othererror"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_12"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_12"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_othererror" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_blindfiles"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_13"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_13"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_blindfiles" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-
-                            <androidx.constraintlayout.widget.ConstraintLayout
-                                android:layout_width="wrap_content"
-                                android:layout_height="wrap_content"
-                                android:layout_marginStart="@dimen/activity_more_margin">
-
-                                <ImageView
-                                    android:id="@+id/iv_point"
-                                    android:layout_width="@dimen/fourteen_pic_size"
-                                    android:layout_height="@dimen/fourteen_pic_size"
-                                    android:src="@drawable/ic_fourteen_14"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toTopOf="parent" />
-
-                                <TextView
-                                    android:layout_width="wrap_content"
-                                    android:layout_height="wrap_content"
-                                    android:text="@string/home_tv_fourteen_14"
-                                    android:textColor="@color/black"
-                                    android:textSize="10sp"
-                                    android:textStyle="bold"
-                                    app:layout_constraintEnd_toEndOf="parent"
-                                    app:layout_constraintStart_toStartOf="parent"
-                                    app:layout_constraintTop_toBottomOf="@id/iv_point" />
-                            </androidx.constraintlayout.widget.ConstraintLayout>
-                        </TableRow>
-
-                    </TableLayout>
-
-                </HorizontalScrollView>
-
-                <androidx.constraintlayout.widget.ConstraintLayout
-                    android:fitsSystemWindows="true"
-                    android:layout_width="48dp"
-                    android:layout_height="3dp"
-                    android:layout_marginTop="@dimen/activity_margin"
-                    android:background="@color/whitegrey"
-                    app:layout_constraintEnd_toEndOf="parent"
-                    app:layout_constraintStart_toStartOf="parent"
-                    app:layout_constraintTop_toBottomOf="@id/home_hsv">
-
-                    <View
-                        android:id="@+id/home_scroll"
-                        android:layout_width="18dp"
-                        android:layout_height="3dp"
-                        android:background="@color/deepgrey"
-                        app:layout_constraintStart_toStartOf="parent"
-                        app:layout_constraintTop_toTopOf="parent" />
-                </androidx.constraintlayout.widget.ConstraintLayout>
 
                 <TextView
                     android:id="@+id/home_tv_banner"
@@ -546,15 +115,441 @@
         android:scrollbars="none"
         app:layout_behavior="@string/appbar_scrolling_view_behavior">
 
-        <androidx.recyclerview.widget.RecyclerView
-            android:layout_marginStart="@dimen/activity_vertical_margin"
-            android:layout_marginEnd="@dimen/activity_vertical_margin"
-            android:id="@+id/home_rv_all"
+        <androidx.constraintlayout.widget.ConstraintLayout
             android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:nestedScrollingEnabled="false"
-            app:layout_behavior="@string/appbar_scrolling_view_behavior"
-            tools:listitem="@layout/item_home_list" />
+            android:layout_height="wrap_content">
+
+            <HorizontalScrollView
+                android:id="@+id/home_hsv"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fastScrollEnabled="true"
+                android:fitsSystemWindows="true"
+                android:scrollbarAlwaysDrawVerticalTrack="true"
+                android:scrollbarDefaultDelayBeforeFade="500000"
+                android:scrollbarFadeDuration="0"
+                android:scrollbarStyle="outsideInset"
+                android:scrollbars="none"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent">
+
+                <TableLayout
+                    android:layout_width="match_parent"
+                    android:layout_height="wrap_content">
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/activity_more_margin"
+                        android:layout_marginEnd="@dimen/activity_more_margin">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/iv_bungaecare"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_01"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_01"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_bungaecare" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_zzim"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_02"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_02"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_zzim" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_choegun"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_03"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_03"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_choegun" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_naefeed"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_04"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_04"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_naefeed" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_naeponsise"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_05"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_05"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_naeponsise" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_uridongnae"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_06"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_06"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_uridongnae" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_menu"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_07"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_07"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_menu" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </TableRow>
+
+                    <TableRow
+                        android:layout_width="match_parent"
+                        android:layout_height="match_parent"
+                        android:layout_marginStart="@dimen/activity_more_margin"
+                        android:layout_marginTop="@dimen/activity_more_margin"
+                        android:layout_marginEnd="@dimen/activity_more_margin">
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content">
+
+                            <ImageView
+                                android:id="@+id/iv_nike"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_08"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_08"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_nike" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_sneakers"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_09"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_09"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_sneakers" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_followingbrand"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_10"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_10"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_followingbrand" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_vizvim"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_11"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_11"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_vizvim" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_othererror"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_12"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_12"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_othererror" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_blindfiles"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_13"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_13"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_blindfiles" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+
+                        <androidx.constraintlayout.widget.ConstraintLayout
+                            android:layout_width="wrap_content"
+                            android:layout_height="wrap_content"
+                            android:layout_marginStart="@dimen/activity_more_margin">
+
+                            <ImageView
+                                android:id="@+id/iv_point"
+                                android:layout_width="@dimen/fourteen_pic_size"
+                                android:layout_height="@dimen/fourteen_pic_size"
+                                android:src="@drawable/ic_fourteen_14"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toTopOf="parent" />
+
+                            <TextView
+                                android:layout_width="wrap_content"
+                                android:layout_height="wrap_content"
+                                android:text="@string/home_tv_fourteen_14"
+                                android:textColor="@color/black"
+                                android:textSize="10sp"
+                                android:textStyle="bold"
+                                app:layout_constraintEnd_toEndOf="parent"
+                                app:layout_constraintStart_toStartOf="parent"
+                                app:layout_constraintTop_toBottomOf="@id/iv_point" />
+                        </androidx.constraintlayout.widget.ConstraintLayout>
+                    </TableRow>
+
+                </TableLayout>
+
+            </HorizontalScrollView>
+            <androidx.constraintlayout.widget.ConstraintLayout
+                android:id="@+id/home_cl_horiscrollbar"
+                android:fitsSystemWindows="true"
+                android:layout_width="48dp"
+                android:layout_height="3dp"
+                android:layout_marginTop="@dimen/activity_margin"
+                android:background="@color/whitegrey"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@id/home_hsv">
+
+                <View
+                    android:id="@+id/home_scroll"
+                    android:layout_width="18dp"
+                    android:layout_height="3dp"
+                    android:background="@color/deepdeepgrey"
+                    app:layout_constraintStart_toStartOf="parent"
+                    app:layout_constraintBottom_toBottomOf="parent"
+                    app:layout_constraintTop_toTopOf="parent" />
+            </androidx.constraintlayout.widget.ConstraintLayout>
+            <androidx.recyclerview.widget.RecyclerView
+                app:layout_constraintTop_toBottomOf="@id/home_cl_horiscrollbar"
+                android:layout_marginStart="@dimen/activity_vertical_margin"
+                android:layout_marginEnd="@dimen/activity_vertical_margin"
+                android:id="@+id/home_rv_all"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:nestedScrollingEnabled="false"
+                app:layout_behavior="@string/appbar_scrolling_view_behavior"
+                tools:listitem="@layout/item_home_list" />
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
     </androidx.core.widget.NestedScrollView>
 
 

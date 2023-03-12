@@ -31,7 +31,7 @@
         android:layout_width="@dimen/home_heart_vert"
         android:layout_height="@dimen/home_heart_hori"
         android:layout_margin="10dp"
-        android:src="@drawable/ic_heart"
+        android:src="@drawable/ic_action_emptyheart"
         app:layout_constraintEnd_toEndOf="@+id/ld_iv_image"
         app:layout_constraintTop_toTopOf="@+id/ld_iv_image" />
 
