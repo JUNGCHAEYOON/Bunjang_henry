@@ -27,6 +27,7 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ItemDomainActivity::class.java)
             intent.putExtra("id",itemList[position].id)
+            intent.putExtra("userId",itemList[position].userId)
             holder.itemView.context.startActivity(intent)
         }
 

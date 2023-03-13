@@ -13,6 +13,7 @@
     <color name="middlegrey">#BBBBBB</color>
     <color name="deepgrey">#AAAAAA</color>
     <color name="deepdeepgrey">#888888</color>
+    <color name="deepdeepdeepgrey">#555555</color>
     <color name="kakaoyellow">#FEE500</color>
 
     <color name="whiteForBackground">#FFFFFF</color>

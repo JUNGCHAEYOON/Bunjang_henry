@@ -2,6 +2,7 @@ package com.example.risingtest.src.main.home.itemdomain
 
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.src.main.home.itemdomain.models.ItemDomainResponse
+import com.example.risingtest.src.main.home.itemdomain.storemodels.StoreInfoResponse
 import retrofit2.Call
 import retrofit2.Callback
 import retrofit2.Response
@@ -28,6 +29,26 @@ class ItemDomainService (val itemDomainActivityInterface : ItemDomainActivityInt
                 //ItemDomainActivityInterface
                 //fun onGetProductsFailure(message: String)
                 itemDomainActivityInterface.onGetProductsFailure(t.message ?: "통신 오류")
+            }
+
+        })
+    }
+
+    //ItemDomainRetrofitInterface
+    //@GET("/app/users/{id}")
+    //fun getStoreInfo(@Path("id") id : String) : Call<StoreInfoResponse>
+    fun tryGetStoreInfo(userId : String){
+        val itemDomainRetrofitInterface = ApplicationClass.sRetrofit.create(ItemDomainRetrofitInterface::class.java)
+        itemDomainRetrofitInterface.getStoreInfo(userId).enqueue(object : Callback<StoreInfoResponse>{
+            override fun onResponse(
+                call: Call<StoreInfoResponse>,
+                response: Response<StoreInfoResponse>
+            ) {
+                itemDomainActivityInterface.onGetStoreInfoSuccess(response.body() as StoreInfoResponse)
+            }
+
+            override fun onFailure(call: Call<StoreInfoResponse>, t: Throwable) {
+                itemDomainActivityInterface.onGetStoreInfoFailure(t.message ?: "통신 오류")
             }
 
         })
