@@ -5,12 +5,17 @@ import android.util.Log
 import android.view.View
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
+import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityItemDomainBinding
 import com.example.risingtest.src.main.home.itemdomain.models.ItemDomainResponse
 import java.text.DecimalFormat
 
 class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemDomainBinding::inflate),ItemDomainActivityInterface {
+    
+    // 좋아요표시 변수
+    var heart : Boolean = false
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
@@ -83,6 +88,26 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         Glide.with(this).load(result?.categoryImgUrl).into(binding.itemdomainIvCategoryImgUrl)
         //카테고리
         binding.itemdomainTvCategory.text = result?.categoryTitle
+        //하트
+        binding.itemdomainIvHeart.setOnClickListener {
+            if(heart == false){
+                binding.itemdomainIvHeart.setImageResource(R.drawable.ic_action_redheart)
+                heart = true
+            }else{
+                binding.itemdomainIvHeart.setImageResource(R.drawable.ic_action_greyheart)
+                heart = false
+            }
+        }
+        //브랜드이미지
+        Glide.with(this).load(result?.brandImgUrl).into(binding.itemdomainIvBrandimage)
+
+        //브랜드명
+        binding.itemdomainTvBrandname.text = result?.brandName
+
+        //번개톡 버튼
+
+        //안전하게 결제하기
+
     }
     override fun onGetProductsFailure(message: String) {
         showCustomToast(message)
