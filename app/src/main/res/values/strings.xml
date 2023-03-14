@@ -55,6 +55,8 @@
     <string name="add_safepay_details"><u>자세히</u></string>
     <string name="add_hashtag">\u0023</string>
     <string name="add_tag_hint">-내 상품을 다양한 태그로 표현해 보세요.\n-사람들이 내 상품을 더 잘 찾을 수 있어요.\n-상품과 관련 없는 태그를 입력할 경우, 판매에 제재를 받을 수 있어요.</string>
+    <string name="add_tag_search_hint">태그를 입력해주세요(최대 3개)</string>
+
 
     <!--    login-->
     <string name="login_kakaotalk">카카오톡으로 시작하기</string>

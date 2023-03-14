@@ -23,6 +23,7 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
         super.onResume()
         //뒤로가기
         binding.categoryBtnBack.setOnClickListener {
+            ApplicationClass.sSharedPreferences.edit().putBoolean("isCategorySelected",false).apply()
             finish()
         }
 
@@ -116,6 +117,7 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
         binding.categoryLl3.visibility = View.VISIBLE
         binding.categoryTvCategory3.text = title
 
+        ApplicationClass.sSharedPreferences.edit().putBoolean("isCategorySelected",true).apply()
         ApplicationClass.sSharedPreferences.edit().putString("category1",category1Title).apply()
         ApplicationClass.sSharedPreferences.edit().putString("category2",category2Title).apply()
         ApplicationClass.sSharedPreferences.edit().putString("category3",category3Title).apply()

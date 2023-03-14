@@ -37,6 +37,8 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
     private var price : Int = 0                     // 가격
     private var howmany : Int = 1                   // 수량
 
+    private var hasDeliveryFee = false
+
     private var oldornew : Boolean = true           // true 중고      : false 새상품
     private var getback : Boolean = true            // true 교환불가   : false 교환 가능
     private lateinit var location : String          // 교환지역
@@ -44,6 +46,7 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        ApplicationClass.sSharedPreferences.edit().putBoolean("isCategorySelected",false).apply()
     }
 
     override fun onResume() {
@@ -58,7 +61,6 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         // 글쓰기 버튼
         binding.addBtnAdd.setOnClickListener {
             showCustomToast("등록이 완료 되었습니다!")
-
             // POST 실행 함수
             postAll()
 
@@ -76,13 +78,13 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         }
 
         /* 카테고리 선택 */
-        binding.addTvCategory.setOnClickListener {
+        binding.addBtnCategory.setOnClickListener {
             val intent = Intent(this, CategoryActivity::class.java)
             isCategorySelected = true
             startActivity(intent)
         }
         // 카테고리를 이미 설정한경우 해당 변수가 변경됨
-        if(isCategorySelected){
+        if(ApplicationClass.sSharedPreferences.getBoolean("isCategorySelected",false) == true){
             categoryTitle1 = ApplicationClass.sSharedPreferences.getString("category1","대").toString()
             categoryTitle2 = ApplicationClass.sSharedPreferences.getString("category2","중").toString()
             categoryTitle3 = ApplicationClass.sSharedPreferences.getString("category3","소").toString()
@@ -103,10 +105,26 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
             startActivity(intent)
         }
 
+        /* 배송비 포함 체크박스 */
+        binding.addCbHasdeliveryfee.setOnClickListener {
+            if(hasDeliveryFee == false){
+                binding.addCbHasdeliveryfee.setImageResource(R.drawable.ic_action_checkbox_red)
+                hasDeliveryFee = true
+            }else{
+                binding.addCbHasdeliveryfee.setImageResource(R.drawable.ic_action_checkbox_grey)
+                hasDeliveryFee = false
+            }
+        }
+
         /* 옵션선택 버튼 클릭 */
         binding.addBtnOption.setOnClickListener {
             choiceOptionBtnClick()
         }
+    }
+
+    override fun onDestroy() {
+        ApplicationClass.sSharedPreferences.edit().putBoolean("isCategorySelected",false).apply()
+        super.onDestroy()
     }
 
     /* 사진 불러오기 최대 5장 저장하기 */

@@ -139,6 +139,7 @@
             </LinearLayout>
 
             <LinearLayout
+                android:id="@+id/add_btn_category"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
                 android:layout_marginTop="@dimen/activity_more_margin"
@@ -265,7 +266,7 @@
                         android:inputType="number"
                         android:maxLines="1"
                         android:id="@+id/edt_price"
-                        android:layout_width="match_parent"
+                        android:layout_width="250dp"
                         android:layout_height="wrap_content"
                         android:background="@null"
                         android:hint="@string/add_price"
@@ -282,12 +283,11 @@
                     android:background="@color/deepgrey"
                     app:layout_constraintTop_toBottomOf="@id/add_ll" />
 
-                <androidx.appcompat.widget.AppCompatCheckBox
-                    android:id="@+id/rbtn_included"
-                    android:layout_width="25dp"
-                    android:layout_height="25dp"
-                    android:background="@drawable/checkbox_check"
-                    android:button="@null"
+                <ImageView
+                    android:id="@+id/add_cb_hasdeliveryfee"
+                    android:layout_width="22dp"
+                    android:layout_height="22dp"
+                    android:src="@drawable/ic_action_checkbox_grey"
                     app:layout_constraintBottom_toBottomOf="parent"
                     app:layout_constraintRight_toLeftOf="@id/tv_included"
                     app:layout_constraintTop_toTopOf="parent" />
