@@ -7,7 +7,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.risingtest.R
 
-class CategoryAdapter(val passInterface: PassInterface,val itemList:ArrayList<CategoryItem>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
+class CategoryAdapter(val pass1Interface: Pass1Interface, val itemList:ArrayList<CategoryItem>) : RecyclerView.Adapter<CategoryAdapter.CategoryViewHolder>(){
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): CategoryViewHolder {
         val view = LayoutInflater.from(parent.context).inflate(R.layout.item_categoryfrag,parent,false)
@@ -19,8 +19,8 @@ class CategoryAdapter(val passInterface: PassInterface,val itemList:ArrayList<Ca
 
         holder.itemView.setOnClickListener {
 //            Toast.makeText(holder.itemView.context, itemList[position].categoryId.toString(), Toast.LENGTH_SHORT).show()
-            passInterface.onPassCategoryId(itemList[position].categoryId)
-            passInterface.onPassCategoryTitle(itemList[position].title)
+            pass1Interface.onPass1CategoryId(itemList[position].categoryId)
+            pass1Interface.onPass1CategoryTitle(itemList[position].title)
         }
     }
 

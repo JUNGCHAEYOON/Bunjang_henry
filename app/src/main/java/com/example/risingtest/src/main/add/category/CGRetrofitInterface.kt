@@ -12,4 +12,7 @@ interface CGRetrofitInterface {
 
     @GET("/app/categories/middle/{categoryId}")
     fun getMiddle(@Path("categoryId") categoryId : String) : Call<CG1Response>
+
+    @GET("/app/categories/sub/{categoryId}")
+    fun getLast(@Path("categoryId") categoryId : String) : Call<CG1Response>
 }

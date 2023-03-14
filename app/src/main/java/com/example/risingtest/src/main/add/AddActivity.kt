@@ -4,10 +4,12 @@ import android.content.Intent
 import android.net.Uri
 import android.os.Bundle
 import android.util.Log
+import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.risingtest.R
+import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityAddBinding
 import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
@@ -17,11 +19,20 @@ import com.example.risingtest.src.main.add.category.CategoryActivity
 import com.example.risingtest.src.main.add.tag.TagActivity
 
 class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate), addBottomSheet.addBottomSheetListener {
+    //카테고리 실행 완료여부
+    var isCategorySelected = false
 
     // post 로 넘겨줄 변수들
     private lateinit var pic : ArrayList<Int>       // 사진 리스트
     private lateinit var name : String              // 제품명
-    private lateinit var category : String          // 카테고리
+
+    var categoryId1 : Int = 0                       // 카테고리 대 아이디
+    var categoryId2 : Int = 0                       // 카테고리 중 아이디
+    var categoryId3 : Int = 0                       // 카테고리 소 아이디
+    lateinit var categoryTitle1 : String            // 카테고리 대 이름
+    lateinit var categoryTitle2 : String            // 카테고리 중 이름
+    lateinit var categoryTitle3 : String            // 카테고리 소 이름
+
     private lateinit var tag : ArrayList<String>    // 태그 리스트
     private var price : Int = 0                     // 가격
     private var howmany : Int = 1                   // 수량
@@ -67,7 +78,23 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         /* 카테고리 선택 */
         binding.addTvCategory.setOnClickListener {
             val intent = Intent(this, CategoryActivity::class.java)
+            isCategorySelected = true
             startActivity(intent)
+        }
+        // 카테고리를 이미 설정한경우 해당 변수가 변경됨
+        if(isCategorySelected){
+            categoryTitle1 = ApplicationClass.sSharedPreferences.getString("category1","대").toString()
+            categoryTitle2 = ApplicationClass.sSharedPreferences.getString("category2","중").toString()
+            categoryTitle3 = ApplicationClass.sSharedPreferences.getString("category3","소").toString()
+            categoryId1 = ApplicationClass.sSharedPreferences.getInt("category1Id",0)
+            categoryId2 = ApplicationClass.sSharedPreferences.getInt("category2Id",0)
+            categoryId3 = ApplicationClass.sSharedPreferences.getInt("category3Id",0)
+
+            binding.addTv1.text = categoryTitle1
+            binding.addTv2.text = categoryTitle2
+            binding.addTv3.text = categoryTitle3
+            binding.addLlCategory.visibility = View.VISIBLE
+            binding.addTvCategory.visibility = View.GONE
         }
 
         /* 태그 선택 */

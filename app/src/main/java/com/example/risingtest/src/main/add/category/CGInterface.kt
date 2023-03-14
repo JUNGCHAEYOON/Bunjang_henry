@@ -11,4 +11,8 @@ interface CGInterface {
     //중분류
     fun onGetMiddleSuccess(response : CG1Response)
     fun onGetMiddleFailure(message : String)
+
+    //소분류
+    fun onGetLastSuccess(response : CG1Response)
+    fun onGetLastFailure(message : String)
 }

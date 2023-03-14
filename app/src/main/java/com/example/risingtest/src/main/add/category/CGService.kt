@@ -41,4 +41,18 @@ class CGService (val cGInterface: CGInterface) {
 
         })
     }
+
+    fun tryGetLast(categoryId : String){
+        val cGRetrofitInterface = ApplicationClass.sRetrofit.create(CGRetrofitInterface::class.java)
+        cGRetrofitInterface.getLast(categoryId).enqueue(object : Callback<CG1Response>{
+            override fun onResponse(call: Call<CG1Response>, response: Response<CG1Response>) {
+                cGInterface.onGetLastSuccess(response.body() as CG1Response)
+            }
+
+            override fun onFailure(call: Call<CG1Response>, t: Throwable) {
+                cGInterface.onGetLastFailure(t.message?: "통신오류")
+            }
+
+        })
+    }
 }

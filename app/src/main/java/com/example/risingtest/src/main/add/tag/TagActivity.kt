@@ -11,5 +11,14 @@ class TagActivity : BaseActivity<ActivityTagBinding>(ActivityTagBinding::inflate
 
     override fun onResume() {
         super.onResume()
+        // 뒤로가기
+        binding.tagBtnBack.setOnClickListener {
+            finish()
+        }
+
+        // 체크버튼
+        binding.tagBtnCheck.setOnClickListener {
+            finish()
+        }
     }
 }
