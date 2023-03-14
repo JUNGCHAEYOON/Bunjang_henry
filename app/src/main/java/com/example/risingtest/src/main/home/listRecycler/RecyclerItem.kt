@@ -3,6 +3,7 @@ package com.example.risingtest.src.main.home.listRecycler
 data class RecyclerItem (
     var categorytitle : String?,
     var id : Int?,
+    val userId : Int?,
     var price : Int? = 0,
     var safeCare : Boolean? = false,
     var safePay : Boolean? = false,

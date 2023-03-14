@@ -4,6 +4,9 @@
 
     <uses-permission android:name="android.permission.INTERNET" />
 
+    <uses-permission android:name="android.permission.WRITE_EXTERNAL_STORAGE" />
+    <uses-permission android:name="android.permission.READ_EXTERNAL_STORAGE" />
+
     <application
         android:name=".config.ApplicationClass"
         android:allowBackup="false"
@@ -71,6 +74,18 @@
         <activity
             android:name=".src.main.home.itemdomain.ItemDomainActivity"
             android:exported="false"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.add.category.CategoryActivity"
+            android:exported="false"
+            android:parentActivityName=".src.main.add.AddActivity"
+            android:screenOrientation="portrait"
+            android:theme="@style/AppTheme.NoActionBar" />
+        <activity
+            android:name=".src.main.add.tag.TagActivity"
+            android:exported="false"
+            android:parentActivityName=".src.main.add.AddActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar" />
     </application>

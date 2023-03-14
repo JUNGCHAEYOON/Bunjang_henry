@@ -33,12 +33,15 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         super.onResume()
         // id 받아오기
         val id = intent.getIntExtra("id",0)
+        val userId = intent.getIntExtra("userId", 0)
+
+        // 뒤로가기 버튼
 
         // api 호출하여 상품정보 조회
         ItemDomainService(this).tryGetProducts(id.toString())
 
         // 상점정보 불러오기
-        ItemDomainService(this).tryGetStoreInfo()
+        ItemDomainService(this).tryGetStoreInfo(userId.toString())
 
         // 상점이 판매중인 상품 불러오기
 

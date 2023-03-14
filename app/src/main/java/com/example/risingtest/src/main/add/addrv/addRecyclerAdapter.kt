@@ -21,7 +21,7 @@ class addRecyclerAdapter (val itemList:ArrayList<addItem>) : RecyclerView.Adapte
     }
 
     override fun onBindViewHolder(holder: addRecyclerViewHolder, position: Int) {
-        Glide.with(holder.itemView.context).load(itemList[position]).transform(CenterCrop(), RoundedCorners(5)).into(holder.add_iv_rv_item)
+        Glide.with(holder.itemView.context).load(itemList[position].image).transform(CenterCrop(), RoundedCorners(5)).into(holder.add_iv_rv_item)
     }
 
     override fun getItemCount(): Int {

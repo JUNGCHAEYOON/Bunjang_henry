@@ -1,6 +1,11 @@
 package com.example.risingtest.src.main.add
 
+import android.content.Intent
+import android.net.Uri
 import android.os.Bundle
+import android.util.Log
+import androidx.activity.result.ActivityResultLauncher
+import androidx.activity.result.contract.ActivityResultContracts
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
@@ -8,6 +13,8 @@ import com.example.risingtest.databinding.ActivityAddBinding
 import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
 import com.example.risingtest.src.main.add.addrv.addItem
 import com.example.risingtest.src.main.add.addrv.addRecyclerAdapter
+import com.example.risingtest.src.main.add.category.CategoryActivity
+import com.example.risingtest.src.main.add.tag.TagActivity
 
 class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate), addBottomSheet.addBottomSheetListener {
 
@@ -26,6 +33,10 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+    }
+
+    override fun onResume() {
+        super.onResume()
 
         /*툴바 설정 및 뒤로가기 구현*/
         setSupportActionBar(binding.addTb)
@@ -36,7 +47,7 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         // 글쓰기 버튼
         binding.addBtnAdd.setOnClickListener {
             showCustomToast("등록이 완료 되었습니다!")
-            
+
             // POST 실행 함수
             postAll()
 
@@ -44,9 +55,25 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
             finish()
         }
 
-        /* 사진 불러오기 최대 12장 저장하기 */
+        /* 사진 불러오기 최대 5장 저장하기 */
         binding.addBtnAddpic.setOnClickListener {
-            getPicRecycler()
+            val intent = Intent(Intent.ACTION_PICK)
+            intent.type = "image/*"
+            intent.putExtra(Intent.EXTRA_ALLOW_MULTIPLE, true)
+            activityResult.launch(intent)
+            showCustomToast("최대 5장까지만 가능합니다.")
+        }
+
+        /* 카테고리 선택 */
+        binding.addTvCategory.setOnClickListener {
+            val intent = Intent(this, CategoryActivity::class.java)
+            startActivity(intent)
+        }
+
+        /* 태그 선택 */
+        binding.addTvTag.setOnClickListener {
+            val intent = Intent(this, TagActivity::class.java)
+            startActivity(intent)
         }
 
         /* 옵션선택 버튼 클릭 */
@@ -55,25 +82,50 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         }
     }
 
-    /* 사진 불러오기 최대 12장 저장하기 */
-    fun getPicRecycler(){
-        /* 리싸이클러뷰 파트 */
-
+    /* 사진 불러오기 최대 5장 저장하기 */
+    private val activityResult: ActivityResultLauncher<Intent> = registerForActivityResult(
+        ActivityResultContracts.StartActivityForResult()){
         // 리싸이클러뷰 변수 선언
         val rv = binding.addRvPic
-
         // rv에 들어갈 아이템 선언
         val itemList = ArrayList<addItem>()
 
-        /*
-        *이부분이 카메라로부터 받아와서 사진 추가하는 부분!!
-        * */
-        // itemList 에 RecyclerItem 추가
-        itemList.add(addItem(R.drawable.radius_red))
-        itemList.add(addItem(R.drawable.radius_red))
-        itemList.add(addItem(R.drawable.radius_red))
-        itemList.add(addItem(R.drawable.radius_red))
+        //결과 코드 OK , 결가값 null 아니면
+        if(it.resultCode == RESULT_OK){
 
+            //멀티 선택은 clipData
+            if(it.data!!.clipData != null){ //멀티 이미지
+
+                //선택한 이미지 갯수
+                val count = it.data!!.clipData!!.itemCount
+
+                //5보다 작아야지만 할당함
+                if(count <= 5){
+                    binding.addTvHowmanypic.text = count.toString() + "/5"
+                    for(index in 0 until count){
+                        //이미지 담기
+                        val imageUri = it.data!!.clipData!!.getItemAt(index).uri
+                        //이미지 추가
+                        itemList.add(addItem(imageUri))
+                    }
+                //5 보다 크면 5만 할당
+                }else{
+                    binding.addTvHowmanypic.text = "5/5"
+                    for(index in 0 until 5){
+                        //이미지 담기
+                        val imageUri = it.data!!.clipData!!.getItemAt(index).uri
+                        //이미지 추가
+                        itemList.add(addItem(imageUri))
+                    }
+                }
+
+            }else{ //싱글 이미지
+                val imageUri = it.data!!.data
+                itemList.add(addItem(imageUri!!))
+                binding.addTvHowmanypic.text = "1/5"
+            }
+        }
+        Log.d("BBBBBBBBBBBBBBBBBBBBBBB",itemList.toString())
 
         // 어댑터 변수 선언
         val recyclerAdapter = addRecyclerAdapter(itemList)
@@ -85,6 +137,8 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         rv.adapter = recyclerAdapter
         rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
+
+
 
     /* 옵션선택 버튼 클릭 */
     fun choiceOptionBtnClick(){

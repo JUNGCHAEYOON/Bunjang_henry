@@ -236,6 +236,7 @@ class HomeFragment :
             itemlist.add(RecyclerItem(
                 i?.categoryTitle,
                 i?.id,
+                i?.userId,
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
@@ -261,6 +262,7 @@ class HomeFragment :
             itemlist.add(RecyclerItem(
                 i?.categoryTitle,
                 i?.id,
+                i?.userId,
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
@@ -286,6 +288,7 @@ class HomeFragment :
             itemlist.add(RecyclerItem(
                 i?.categoryTitle,
                 i?.id,
+                i?.userId,
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
@@ -311,6 +314,7 @@ class HomeFragment :
             itemlist.add(RecyclerItem(
                 i?.categoryTitle,
                 i?.id,
+                i?.userId,
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
@@ -336,6 +340,7 @@ class HomeFragment :
             itemlist.add(RecyclerItem(
                 i?.categoryTitle,
                 i?.id,
+                i?.userId,
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
