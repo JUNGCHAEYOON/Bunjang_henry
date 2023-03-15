@@ -70,7 +70,18 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         //위치
         binding.itemdomainTvLocation.text = result?.locationAddress
         //시간
-        binding.itemdomainTvTime.text = result?.createdAt
+        if(result?.dayCreatedFrom == 0){
+            if(result?.hourCreatedFrom == 0){
+                binding.itemdomainTvTime.text = "방금전"
+            }else{
+                binding.itemdomainTvTime.text = result?.hourCreatedFrom.toString() + "시간전"
+            }
+        }else if(result?.dayCreatedFrom!! <= 3){
+            binding.itemdomainTvTime.text = result?.dayCreatedFrom.toString() + "일전"
+        }else{
+            binding.itemdomainTvTime.text = result?.createdAt
+        }
+
         //조회수
         binding.itemdomainTvHowmanyviews.text = result?.view.toString()
         //좋아요수

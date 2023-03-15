@@ -88,9 +88,6 @@ class CategoryActivity : BaseActivity<ActivityCategoryBinding>(ActivityCategoryB
         binding.categoryTvCategory2.text = title
     }
     override fun onGetLastSuccess(response: CG1Response) {
-
-        showCustomToast(response.result.toString())
-
         val result = response.result
         val itemList = ArrayList<CategoryItem>()
         if (result != null) {

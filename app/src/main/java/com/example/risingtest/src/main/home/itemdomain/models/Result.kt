@@ -9,6 +9,10 @@ data class Result(
     val chatCounts: Int?,
     val content: String?,
     val createdAt: String?,
+    //2개추가
+    val dayCreatedFrom : Int?,
+    val hourCreatedFrom : Int?,
+
     val hasDeliveryFee: String?,
     val isInterchangeable: String?,
     val isNew: String?,

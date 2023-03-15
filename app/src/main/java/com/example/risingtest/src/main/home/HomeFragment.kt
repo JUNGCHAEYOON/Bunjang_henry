@@ -203,8 +203,7 @@ class HomeFragment :
     override fun onGetListSuccess(response: HomeListResponse) {
 
         /* 불러오기 */
-        //1
-        val response1 = response.result?.manPadding!!
+        Log.d("WWWWWWWWWWWWWWWWWWWWW", response.toString())
 
         // 큰 리싸이클러
         val parentItemList = ArrayList<ParentItem>()
@@ -240,6 +239,7 @@ class HomeFragment :
                 i?.price,
                 i?.safeCare,
                 i?.safePay,
+                i?.checkMyProduct,
                 i?.title,
                 i?.url
             ))
@@ -264,6 +264,7 @@ class HomeFragment :
                 i?.id,
                 i?.userId,
                 i?.price,
+                i?.checkMyProduct,
                 i?.safeCare,
                 i?.safePay,
                 i?.title,
@@ -290,6 +291,7 @@ class HomeFragment :
                 i?.id,
                 i?.userId,
                 i?.price,
+                i?.checkMyProduct,
                 i?.safeCare,
                 i?.safePay,
                 i?.title,
@@ -316,6 +318,7 @@ class HomeFragment :
                 i?.id,
                 i?.userId,
                 i?.price,
+                i?.checkMyProduct,
                 i?.safeCare,
                 i?.safePay,
                 i?.title,
@@ -342,6 +345,7 @@ class HomeFragment :
                 i?.id,
                 i?.userId,
                 i?.price,
+                i?.checkMyProduct,
                 i?.safeCare,
                 i?.safePay,
                 i?.title,

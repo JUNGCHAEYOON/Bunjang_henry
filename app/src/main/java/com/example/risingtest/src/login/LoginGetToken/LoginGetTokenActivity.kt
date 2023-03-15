@@ -2,6 +2,7 @@ package com.example.risingtest.src.login.LoginGetToken
 
 import android.content.Intent
 import android.os.Bundle
+import android.util.Log
 import android.view.View
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
@@ -61,6 +62,8 @@ class LoginGetTokenActivity :
     override fun onPostLoginGetTokenSuccess(response: LGTResponse) {
         //sharedpreferences 에 jwt 토큰 저장!
         ApplicationClass.sSharedPreferences.edit().putString(ApplicationClass.X_ACCESS_TOKEN,response.result?.jwt.toString()).apply()
+        val uid = response.result?.userId!!
+        ApplicationClass.sSharedPreferences.edit().putInt("userId",uid).apply()
     
         if(response.result?.jwt != null){
             showCustomToast("회원가입이 완료되었습니다.")

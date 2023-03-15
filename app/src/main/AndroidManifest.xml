@@ -48,7 +48,7 @@
             android:parentActivityName=".src.main.MainActivity"
             android:screenOrientation="portrait"
             android:theme="@style/AppTheme.NoActionBar"
-            android:windowSoftInputMode="adjustPan" />
+            android:windowSoftInputMode="adjustUnspecified" />
         <activity
             android:name=".src.main.alim.AlimActivity"
             android:exported="false"

@@ -8,6 +8,6 @@ import retrofit2.http.POST
 
 interface LoginGetTokenRetrofitInterface {
 
-    @POST("/app/users/create")
+    @POST("/app/users")
     fun postLoginGetToken(@Body params: LGTRequest): Call<LGTResponse>
 }

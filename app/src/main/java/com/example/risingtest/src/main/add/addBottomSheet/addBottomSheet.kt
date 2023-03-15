@@ -36,7 +36,7 @@ class addBottomSheet() : BottomSheetDialogFragment() {
     var option_howmany = 1
     var option_status = true        // true 중고, false 새상품
     var option_getBack = true       // true 불가, false 가능
-    var option_location = "마포"     //디폴트 마포! 추후 선택지 설정예정
+    var option_location = "고양시 덕양구 도내동"     //디폴트 도내동! 추후 선택지 설정예정
 
     override fun onAttach(context: Context) {
         super.onAttach(context)

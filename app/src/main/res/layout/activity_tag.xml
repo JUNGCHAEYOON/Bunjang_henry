@@ -88,6 +88,7 @@
                     android:layout_height="wrap_content"
                     android:text="@string/add_hashtag"/>
                 <EditText
+                    android:imeOptions="actionSearch"
                     android:singleLine="true"
                     android:maxLength="20"
                     android:id="@+id/tag_etv_search"
@@ -96,7 +97,7 @@
                     android:textColor="@color/black"
                     android:textStyle="bold"
                     android:textSize="15dp"
-                    android:textColorHint="@color/deepdeepdeepgrey"
+                    android:textColorHint="@color/deepdeepgrey"
                     android:hint="@string/add_tag_search_hint"
                     android:background="@color/white"
                     android:layout_width="wrap_content"

@@ -1,30 +1,60 @@
 package com.example.risingtest.src.main.add
 
 import android.content.Intent
+import android.database.Cursor
+import android.graphics.Color
 import android.net.Uri
 import android.os.Bundle
+import android.provider.MediaStore
 import android.util.Log
 import android.view.View
 import androidx.activity.result.ActivityResultLauncher
 import androidx.activity.result.contract.ActivityResultContracts
+import androidx.core.net.toFile
 import androidx.recyclerview.widget.LinearLayoutManager
 import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityAddBinding
 import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
+import com.example.risingtest.src.main.add.addmodels.AddRequest
+import com.example.risingtest.src.main.add.addmodels.AddResponse
 import com.example.risingtest.src.main.add.addrv.addItem
 import com.example.risingtest.src.main.add.addrv.addRecyclerAdapter
 import com.example.risingtest.src.main.add.category.CategoryActivity
 import com.example.risingtest.src.main.add.tag.TagActivity
+import okhttp3.MediaType
+import okhttp3.MediaType.Companion.toMediaTypeOrNull
+import okhttp3.MultipartBody
+import okhttp3.RequestBody
+import okhttp3.RequestBody.Companion.asRequestBody
+import java.io.File
 
-class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate), addBottomSheet.addBottomSheetListener {
+
+class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate), addBottomSheet.addBottomSheetListener, AddInterface {
     //카테고리 실행 완료여부
     var isCategorySelected = false
 
+
+    // 이미지파일 5장
+    var file = ArrayList<File>()
+
     // post 로 넘겨줄 변수들
-    private lateinit var pic : ArrayList<Int>       // 사진 리스트
-    private lateinit var name : String              // 제품명
+    var amount : Int? = 0
+    var checkExchange : String? = "Y"
+    var checkNewProduct : String? = "Y"
+    var checkPay : String? = "Y"
+    var content : String? = ""
+    var hasDeliveryFee : String? = "Y"
+    var majorCategoryId : Int? = -1
+    var middleCategoryId : Int? = -1
+    var price : Int? = 0
+    var region : String? = ""
+    var subCategoryId : Int? = -1
+    private var tagIds = ArrayList<Int?>()          // 태그 리스트
+    var title : String? = ""
+    var userId : Int? = 0
+
 
     var categoryId1 : Int = 0                       // 카테고리 대 아이디
     var categoryId2 : Int = 0                       // 카테고리 중 아이디
@@ -33,20 +63,23 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
     lateinit var categoryTitle2 : String            // 카테고리 중 이름
     lateinit var categoryTitle3 : String            // 카테고리 소 이름
 
-    private lateinit var tag : ArrayList<String>    // 태그 리스트
-    private var price : Int = 0                     // 가격
-    private var howmany : Int = 1                   // 수량
 
-    private var hasDeliveryFee = false
+
+    private var hasDeliveryFeeBool = false
 
     private var oldornew : Boolean = true           // true 중고      : false 새상품
     private var getback : Boolean = true            // true 교환불가   : false 교환 가능
     private lateinit var location : String          // 교환지역
     private lateinit var info : String              // 설명
 
+    private var isSafePayed : Boolean = true
+
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+        
+        //액티비티 시작시 초기화
         ApplicationClass.sSharedPreferences.edit().putBoolean("isCategorySelected",false).apply()
+        ApplicationClass.sSharedPreferences.edit().putBoolean("isTagSelected",false).apply()
     }
 
     override fun onResume() {
@@ -60,11 +93,57 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         }
         // 글쓰기 버튼
         binding.addBtnAdd.setOnClickListener {
-            showCustomToast("등록이 완료 되었습니다!")
-            // POST 실행 함수
-            postAll()
+            // POST 실행 변수
 
-            //액티비티 종료
+            /* 변수 */
+            //글쓰기
+            content = binding.addEtvExplanation.text.toString()
+            //가격
+            price = binding.addEtvPrice.text.toString().toInt()
+            //타이틀
+            title = binding.addEtvProductname.text.toString()
+            //유저아이디
+            userId = ApplicationClass.sSharedPreferences.getInt("userId",0)
+
+            val postProductReq = AddRequest(
+                amount = amount,
+                checkExchange = checkExchange,
+                checkNewProduct = checkNewProduct,
+                checkPay = checkPay,
+                content = content,
+                hasDeliveryFee = hasDeliveryFee,
+                majorCategoryId = majorCategoryId,
+                middleCategoryId = middleCategoryId,
+                price = price,
+                region = region,
+                subCategoryId = subCategoryId,
+                tagIds = tagIds,
+                title = title,
+                userId = userId
+            )
+
+            // Post 시작
+
+            // file : ArrayList<File> -> ArrayList<MultipartBody.Part>
+            // postProductReq : AddResponse -> MultipartBody.Part
+//            val P1 = ArrayList<MultipartBody.Part>()
+//            for(i in file){
+//                val requestBody = i.asRequestBody("image/png".toMediaTypeOrNull())
+//                val m = MultipartBody.Part.createFormData("images", i.name, requestBody)
+//                P1.add(m)
+//            }
+//
+//            val P2 = postProductReq
+//
+//            val str : String = "메롱"
+//            val formstr = MultipartBody.Part.createFormData("키", postProductReq.toString())
+//            Log.d("LLLLLLLLLL",P1.toString())
+
+
+            AddService(this).tryPostAdd(file,postProductReq)
+
+//            액티비티 종료
+            showCustomToast("등록이 완료 되었습니다!")
             finish()
         }
 
@@ -89,8 +168,11 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
             categoryTitle2 = ApplicationClass.sSharedPreferences.getString("category2","중").toString()
             categoryTitle3 = ApplicationClass.sSharedPreferences.getString("category3","소").toString()
             categoryId1 = ApplicationClass.sSharedPreferences.getInt("category1Id",0)
+            majorCategoryId = categoryId1
             categoryId2 = ApplicationClass.sSharedPreferences.getInt("category2Id",0)
+            middleCategoryId = categoryId2
             categoryId3 = ApplicationClass.sSharedPreferences.getInt("category3Id",0)
+            subCategoryId = categoryId3
 
             binding.addTv1.text = categoryTitle1
             binding.addTv2.text = categoryTitle2
@@ -100,25 +182,73 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         }
 
         /* 태그 선택 */
-        binding.addTvTag.setOnClickListener {
+        binding.addBtnTag.setOnClickListener {
+            ApplicationClass.sSharedPreferences.edit().putBoolean("isTagSelected",false).apply()
             val intent = Intent(this, TagActivity::class.java)
             startActivity(intent)
+        }
+        if(ApplicationClass.sSharedPreferences.getBoolean("isTagSelected",false) == true){
+            tagIds.clear()
+            binding.addLlTag.visibility = View.VISIBLE
+            binding.addTvTag1.text = "#" + ApplicationClass.sSharedPreferences.getString("tag1","태그1번").toString()
+            tagIds.add(ApplicationClass.sSharedPreferences.getInt("tag1Id",0))
+            binding.addTvTag2.visibility = View.GONE
+            binding.addTvTag3.visibility = View.GONE
+            // 태그2번 이 있으면 2번도 추가
+            if(ApplicationClass.sSharedPreferences.getString("tag2","태그2번").toString() != "태그2번"){
+                binding.addTvTag2.text = "#" + ApplicationClass.sSharedPreferences.getString("tag2","태그2번").toString()
+                binding.addTvTag2.visibility = View.VISIBLE
+                tagIds.add(ApplicationClass.sSharedPreferences.getInt("tag2Id",0))
+                binding.addTvTag3.visibility = View.GONE
+            }
+            // 3번이 있으면 3번도
+            if(ApplicationClass.sSharedPreferences.getString("tag3","태그3번").toString() != "태그3번"){
+                binding.addTvTag3.text = "#" + ApplicationClass.sSharedPreferences.getString("tag3","태그3번").toString()
+                binding.addTvTag3.visibility = View.VISIBLE
+                tagIds.add(ApplicationClass.sSharedPreferences.getInt("tag3Id",0))
+            }
+
+            binding.addTvTagHint.visibility = View.GONE
+        }else{
+            tagIds.clear()
+            binding.addLlTag.visibility = View.GONE
+            binding.addTvTagHint.visibility = View.VISIBLE
         }
 
         /* 배송비 포함 체크박스 */
         binding.addCbHasdeliveryfee.setOnClickListener {
-            if(hasDeliveryFee == false){
+            if(hasDeliveryFeeBool == false){
                 binding.addCbHasdeliveryfee.setImageResource(R.drawable.ic_action_checkbox_red)
-                hasDeliveryFee = true
+                hasDeliveryFeeBool = true
+                hasDeliveryFee = "Y"
             }else{
                 binding.addCbHasdeliveryfee.setImageResource(R.drawable.ic_action_checkbox_grey)
-                hasDeliveryFee = false
+                hasDeliveryFeeBool = false
+                hasDeliveryFee = "N"
             }
         }
 
         /* 옵션선택 버튼 클릭 */
         binding.addBtnOption.setOnClickListener {
             choiceOptionBtnClick()
+        }
+
+        /*안전결제 환영 클릭*/
+        binding.addBtnSafepay.setOnClickListener{
+            if(isSafePayed == true){
+                isSafePayed = false
+                checkPay = "N"
+                binding.addBtnSafepay.setBackgroundResource(R.drawable.radius_mypage_point)
+                binding.addTvWelcomesafepay.setTextColor(Color.parseColor("#888888"))
+                binding.addIvWelcomsafepay.setImageResource(R.drawable.ic_action_check_grey)
+            }else{
+                isSafePayed = true
+                checkPay = "Y"
+                binding.addBtnSafepay.setBackgroundResource(R.drawable.radius_stroke_deepred)
+                binding.addTvWelcomesafepay.setTextColor(Color.parseColor("#000000"))
+                binding.addIvWelcomsafepay.setImageResource(R.drawable.ic_action_check_red)
+            }
+
         }
     }
 
@@ -138,7 +268,7 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         //결과 코드 OK , 결가값 null 아니면
         if(it.resultCode == RESULT_OK){
 
-            //멀티 선택은 clipData
+            //멀티 선택은 clipDaa
             if(it.data!!.clipData != null){ //멀티 이미지
 
                 //선택한 이미지 갯수
@@ -152,6 +282,11 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
                         val imageUri = it.data!!.clipData!!.getItemAt(index).uri
                         //이미지 추가
                         itemList.add(addItem(imageUri))
+                        
+                        // 파일로 변환
+                        val p = File(getRealPathFromURI(imageUri))
+                        // 파일 배열 추가
+                        file.add(p)
                     }
                 //5 보다 크면 5만 할당
                 }else{
@@ -161,6 +296,7 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
                         val imageUri = it.data!!.clipData!!.getItemAt(index).uri
                         //이미지 추가
                         itemList.add(addItem(imageUri))
+                        file.add(imageUri.toFile())
                     }
                 }
 
@@ -183,6 +319,20 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
         rv.layoutManager = LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false)
     }
 
+    private fun getRealPathFromURI(contentURI: Uri): String? {
+        val result: String
+        val cursor: Cursor? = contentResolver.query(contentURI, null, null, null, null)
+        if (cursor == null) { // Source is Dropbox or other similar local file path
+            result = contentURI.getPath().toString()
+        } else {
+            cursor.moveToFirst()
+            val idx: Int = cursor.getColumnIndex(MediaStore.Images.ImageColumns.DATA)
+            result = cursor.getString(idx)
+            cursor.close()
+        }
+        return result
+    }
+
 
 
     /* 옵션선택 버튼 클릭 */
@@ -194,31 +344,41 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
     override fun onDataPassOp(op1: Int, op2: Boolean, op3: Boolean, op4: String) {
         //op1
         binding.addTvHowmany.text = op1.toString() + "개"
+        amount = op1
         
         //op2
         if(op2 == true) {
             oldornew = true
             binding.addTvJunggoOrNew.text = "중고상품"
+            checkNewProduct = "N"
         }else{
             oldornew = false
             binding.addTvJunggoOrNew.text = "새상품"
+            checkNewProduct = "Y"
         }
         
         //op3
         if(op3 == true){
             getback = true
             binding.addTvGyohwan.text = "교환불가"
+            checkExchange = "N"
         }else{
             getback = false
             binding.addTvGyohwan.text = "교환가능"
+            checkExchange = "Y"
         }
         
-        //op4 디폴트 마포
+        //op4 디폴트 도내동
         binding.addTvJiyeok.text = op4
+        region = op4
     }
 
     /* 값들을 모두 post 하기 */
-    fun postAll(){
+    override fun onPostAddSuccess(response: AddResponse) {
+        showCustomToast(response.toString())
+    }
 
+    override fun onPostAddFailure(message: String) {
+        showCustomToast(message)
     }
 }

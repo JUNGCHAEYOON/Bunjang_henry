@@ -5,6 +5,7 @@ data class Sneaker(
     val id: Int?,
     val userId : Int?,
     val price: Int?,
+    val checkMyProduct : Boolean?,
     val safeCare: Boolean?,
     val safePay: Boolean?,
     val title: String?,
