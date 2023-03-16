@@ -34,6 +34,12 @@
     <string name="home_tv_fourteen_13">블라인드..</string>
     <string name="home_tv_fourteen_14">포인트모으기</string>
 
+<!--    pay-->
+    <string name="pay_register"><u>등록</u></string>
+    <string name="pay_paybtn_1">개인정보 제 3자 제공동의와 결제대행 서비스 이용약관에 동의합니다.</string>
+    <string name="pay_paybtn_2"><u>자세히 보기</u></string>
+    <string name="pay_paybtn_3">번개장터(주)는 통신판매중개자이며, 통신판매의 당사자가 아닙니다.\n전자상거래 등에서의 소비자보호에 관한 법률 등 관련 법령 및 번개장터(주)의 약관에 따라 상품, 상품정보, 거래에 관한 책임은 개별 판매자에게 귀속하고, 번개장터(주)는 원칙적으로 회원간 거래에 대하여 책임을 지지 않습니다. 다만, 번개장터(주)가 직접 판매하는 상품에 대한 책임은 번개장터(주)에게 귀속합니다.</string>
+
     <!-- MyPage -->
     <string name="my_page_sogae_pyunjip"><u>상점 소개 편집</u></string>
     <string name="my_page_nickname">상점9999호</string>

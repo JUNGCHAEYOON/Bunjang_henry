@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:background="@drawable/radius_bottom_sheet"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_marginHorizontal="@dimen/activity_horizontal_more_margin"
+    android:layout_marginTop="@dimen/activity_top_more_more_margin"
+    app:layout_behavior="com.google.android.material.bottomsheet.BottomSheetBehavior">
+
+    <LinearLayout
+        android:gravity="center"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="vertical"
+        android:layout_marginTop="@dimen/activity_top_more_more_margin"
+        android:layout_marginHorizontal="@dimen/activity_horizontal_more_margin"
+        android:layout_marginBottom="@dimen/activity_top_more_margin"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
+
+        <TextView
+            android:id="@+id/pay_btn_bs_1"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="문앞"
+            android:textSize="24sp"
+            android:textColor="@color/deepgrey"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/pay_btn_bs_2"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="직접 받고 부재 시 문앞"
+            android:textSize="24sp"
+            android:textColor="@color/deepgrey"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/pay_btn_bs_3"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="경비실"
+            android:textSize="24sp"
+            android:textColor="@color/deepgrey"
+            android:textStyle="bold"/>
+        <TextView
+            android:id="@+id/pay_btn_bs_4"
+            android:layout_marginTop="20dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="우편함"
+            android:textSize="24sp"
+            android:textColor="@color/deepgrey"
+            android:textStyle="bold"/>
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="50dp"/>
+
+    </LinearLayout>
+
+</androidx.constraintlayout.widget.ConstraintLayout>

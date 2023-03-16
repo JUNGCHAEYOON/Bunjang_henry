@@ -20,7 +20,7 @@ class AddService (val addInterface: AddInterface) {
 //        @Body postProductReq : AddRequest
 //    ) : Call<AddResponse>
 //    fun tryPostAdd(file : ArrayList<File>, postProductReq : AddRequest){
-    fun tryPostAdd(file : ArrayList<File>, postProductReq : AddRequest){
+    fun tryPostAdd(file : ArrayList<MultipartBody.Part>, postProductReq : AddRequest){
         val addRetrofitInterface = ApplicationClass.sRetrofit.create(AddRetrofitInterface::class.java)
         addRetrofitInterface.postAdd(file, postProductReq).enqueue(object : Callback<AddResponse>{
             override fun onResponse(call: Call<AddResponse>, response: Response<AddResponse>) {

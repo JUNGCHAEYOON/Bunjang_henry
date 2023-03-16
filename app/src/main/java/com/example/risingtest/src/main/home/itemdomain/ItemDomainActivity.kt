@@ -1,19 +1,32 @@
 package com.example.risingtest.src.main.home.itemdomain
 
+import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
 import android.view.View
+import android.widget.GridLayout
+import androidx.recyclerview.widget.GridLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityItemDomainBinding
 import com.example.risingtest.src.main.home.itemdomain.models.ItemDomainResponse
+import com.example.risingtest.src.main.home.itemdomain.pay.PayActivity
 import com.example.risingtest.src.main.home.itemdomain.storemodels.StoreInfoResponse
+import com.example.risingtest.src.main.home.listRecycler.RecyclerAdapter
+import com.example.risingtest.src.main.home.listRecycler.RecyclerItem
 import java.text.DecimalFormat
 
 class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemDomainBinding::inflate),ItemDomainActivityInterface {
+
+    // 결제시 넘겨줘야할 변수
+    var imageuri : String = ""
+    var price : String = ""
+    var realprice : Int = 0
+    var title : String = ""
+    var id : Int = 0
     
     // 좋아요표시 변수
     var heart : Boolean = false
@@ -32,7 +45,7 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
     override fun onResume() {
         super.onResume()
         // id 받아오기
-        val id = intent.getIntExtra("id",0)
+        id = intent.getIntExtra("id",0)
         val userId = intent.getIntExtra("userId", 0)
 
         // 뒤로가기 버튼
@@ -44,8 +57,25 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         ItemDomainService(this).tryGetStoreInfo(userId.toString())
 
         // 상점이 판매중인 상품 불러오기
+        val itemList = ArrayList<RecyclerItem>()
+        for(i in 1 .. 6){
+            itemList.add(
+                RecyclerItem(
+                    "남자패딩",
+                    1000,
+                    1000,
+                    100000,
+                    true,
+                    true,
+                    true,
+                    "남자 패딩 팝니다.",
+                    "https://ifh.cc/g/w2QK11.jpg"
+                )
+            )
+        }
 
-        //
+        binding.itemdomainRvStore.adapter = RecyclerAdapter(itemList)
+        binding.itemdomainRvStore.layoutManager = GridLayoutManager(this,3)
     }
 
     /* 상품 정보 호출 */
@@ -59,6 +89,8 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         val dec = DecimalFormat("#,###")
         val buff = dec.format(result?.price)
         binding.itemdomainTvPrice.text = buff.toString() + "원"
+        price = buff.toString() + "원"
+        realprice = result?.price!!
         //번개페이 가능여부
         if(result?.isSafePay == "Y"){
             binding.itemdomainIvBungaepay.visibility = View.VISIBLE
@@ -67,6 +99,7 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         }
         //제목
         binding.itemdomainTvTitle.text = result?.title
+        title = result?.title.toString()
         //위치
         binding.itemdomainTvLocation.text = result?.locationAddress
         //시간
@@ -133,6 +166,16 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         //번개톡 버튼
 
         //안전하게 결제하기
+        binding.itemdomainBtnPay.setOnClickListener {
+            val intent = Intent(this, PayActivity::class.java)
+            intent.putExtra("imageuri",imageuri)
+            intent.putExtra("price",price)
+            intent.putExtra("title",title)
+            intent.putExtra("realprice",realprice)
+            intent.putExtra("productId",id)
+            startActivity(intent)
+            finish()
+        }
 
     }
     override fun onGetProductsFailure(message: String) {
@@ -145,6 +188,9 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
             val arr = ArrayList<String>()
             for(i in list){
                 arr.add(i.toString())
+                if(imageuri == ""){
+                    imageuri = i.toString()
+                }
             }
             binding.itemdomainVp.adapter = ItemDomainAdapter(this, arr)
             val child = binding.itemdomainVp.getChildAt(0)
@@ -194,12 +240,11 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
                 isFollowed = true
             }
         }
+
     }
 
     override fun onGetStoreInfoFailure(message: String) {
-        TODO("Not yet implemented")
+        showCustomToast(message)
     }
-
-    /* 이상점의 상품 */
 
 }
