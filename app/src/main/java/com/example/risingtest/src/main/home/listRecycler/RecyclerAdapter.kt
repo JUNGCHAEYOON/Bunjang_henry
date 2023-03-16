@@ -1,6 +1,7 @@
 package com.example.risingtest.src.main.home.listRecycler
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -27,6 +28,7 @@ class RecyclerAdapter(val itemList: ArrayList<RecyclerItem>) :
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ItemDomainActivity::class.java)
             intent.putExtra("id",itemList[position].id)
+            Log.d("CCCCCCCCCCCCCCCCCCCCC", itemList[position].id.toString())
             intent.putExtra("userId",itemList[position].userId)
             holder.itemView.context.startActivity(intent)
         }

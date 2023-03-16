@@ -1,6 +1,7 @@
 package com.example.risingtest.src.main.home.listdomain
 
 import android.os.Bundle
+import android.util.Log
 import androidx.recyclerview.widget.GridLayoutManager
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityListDomainBinding
@@ -57,6 +58,7 @@ class ListDomainActivity : BaseActivity<ActivityListDomainBinding>(ActivityListD
                         i?.title,
                         i?.url
                     ))
+                    Log.d("CCCCCCCCCCCCCCCCCCCCCC", i?.id.toString())
                 }
                 val recyclerAdapter = LDAdapter(itemlist)
                 recyclerAdapter.notifyDataSetChanged()

@@ -1,6 +1,8 @@
 package com.example.risingtest.src.main.add
 
 import android.provider.Telephony.Mms.Addr
+import com.example.risingtest.src.main.add.add2models.Add2Request
+import com.example.risingtest.src.main.add.add2models.Add2Response
 import com.example.risingtest.src.main.add.addmodels.AddRequest
 import com.example.risingtest.src.main.add.addmodels.AddResponse
 import com.example.risingtest.src.main.add.tag.PostAddItem
@@ -22,4 +24,7 @@ interface AddRetrofitInterface {
 //        @Part ("postProductReq") postProductReq : AddRequest
         @Part ("postProductReq") postProductReq : AddRequest
     ) : Call<AddResponse>
+
+    @POST("/app/products/enrollment")
+    fun postAdd2(@Body postProductReq : Add2Request) : Call<Add2Response>
 }

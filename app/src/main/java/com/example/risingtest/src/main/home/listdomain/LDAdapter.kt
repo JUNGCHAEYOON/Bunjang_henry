@@ -1,6 +1,7 @@
 package com.example.risingtest.src.main.home.listdomain
 
 import android.content.Intent
+import android.util.Log
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -26,6 +27,9 @@ class LDAdapter(val itemList: ArrayList<LDItem>) :
         // 전체 아이템 클릭시
         holder.itemView.setOnClickListener {
             val intent = Intent(holder.itemView.context, ItemDomainActivity::class.java)
+            intent.putExtra("id",itemList[position].id)
+            Log.d("CCCCCCCCCCCCCCCCCCCCC", itemList[position].id.toString())
+            intent.putExtra("userId",1)
             holder.itemView.context.startActivity(intent)
         }
 

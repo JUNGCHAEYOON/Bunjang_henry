@@ -17,6 +17,8 @@ import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
 import com.example.risingtest.databinding.ActivityAddBinding
+import com.example.risingtest.src.main.add.add2models.Add2Request
+import com.example.risingtest.src.main.add.add2models.Add2Response
 import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
 import com.example.risingtest.src.main.add.addmodels.AddRequest
 import com.example.risingtest.src.main.add.addmodels.AddResponse
@@ -125,6 +127,22 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
                 title = title,
                 userId = userId
             )
+            val postProductReq2 = Add2Request(
+                amount = amount,
+                checkExchange = checkExchange,
+                checkNewProduct = checkNewProduct,
+                checkPay = checkPay,
+                content = content,
+                hasDeliveryFee = hasDeliveryFee,
+                majorCategoryId = majorCategoryId,
+                middleCategoryId = middleCategoryId,
+                price = price,
+                region = region,
+                subCategoryId = subCategoryId,
+                tagIds = tagIds,
+                title = title,
+                userId = userId
+            )
 
 //            var _amount = amount.toString().toRequestBody("text/plain".toMediaTypeOrNull())
 //            var _checkExchange = checkExchange.toString().toRequestBody("text/plain".toMediaTypeOrNull())
@@ -177,7 +195,8 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
 
             Log.d("LLLLLLLLLL", P1.toString())
             Log.d("LLLLLLLLLL", postProductReq.toString())
-            AddService(this).tryPostAdd(P1, postProductReq)
+//            AddService(this).tryPostAdd(P1, postProductReq)
+            AddService(this).tryPostAdd2(postProductReq2)
 //
 ////            액티비티 종료
             showCustomToast("등록이 완료 되었습니다!")
@@ -439,6 +458,14 @@ class AddActivity : BaseActivity<ActivityAddBinding>(ActivityAddBinding::inflate
     }
 
     override fun onPostAddFailure(message: String) {
+        showCustomToast("등록실패")
+    }
+
+    override fun onPostAdd2Success(response: Add2Response) {
+        showCustomToast("등록성공")
+    }
+
+    override fun onPostAdd2Failure(message: String) {
         showCustomToast("등록실패")
     }
 }

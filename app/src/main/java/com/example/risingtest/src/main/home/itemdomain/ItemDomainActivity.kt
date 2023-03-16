@@ -87,9 +87,12 @@ class ItemDomainActivity : BaseActivity<ActivityItemDomainBinding>(ActivityItemD
         setVp(result?.productImgUrl)
         //가격
         val dec = DecimalFormat("#,###")
+        Log.d("ZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZZ", result.toString())
+
         val buff = dec.format(result?.price)
         binding.itemdomainTvPrice.text = buff.toString() + "원"
         price = buff.toString() + "원"
+//        price = result?.price!!.toString()
         realprice = result?.price!!
         //번개페이 가능여부
         if(result?.isSafePay == "Y"){

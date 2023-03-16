@@ -119,11 +119,9 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
 
     override fun onPostPaySuccess(response: PayResponse) {
         Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ",response.message.toString())
-        showCustomToast(response.result?.title.toString())
     }
 
     override fun onPostPayFailure(message: String) {
         Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ",message)
-        showCustomToast(message)
     }
 }
