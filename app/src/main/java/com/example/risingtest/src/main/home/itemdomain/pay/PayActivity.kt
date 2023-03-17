@@ -1,25 +1,19 @@
 package com.example.risingtest.src.main.home.itemdomain.pay
 
-import android.content.Intent
 import android.graphics.Color
 import android.os.Bundle
 import android.util.Log
-import android.widget.Toast
 import com.bumptech.glide.Glide
 import com.example.risingtest.R
 import com.example.risingtest.config.ApplicationClass
 import com.example.risingtest.config.BaseActivity
-import com.example.risingtest.databinding.ActivityItemDomainBinding
 import com.example.risingtest.databinding.ActivityPayBinding
-import com.example.risingtest.src.main.MainActivity
-import com.example.risingtest.src.main.add.addBottomSheet.addBottomSheet
-import com.example.risingtest.src.main.home.itemdomain.ItemDomainActivityInterface
 import com.example.risingtest.src.main.home.itemdomain.pay.models.PayRequest
 import com.example.risingtest.src.main.home.itemdomain.pay.models.PayResponse
 
 class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate), PayBottomSheet.payBottomSheetListener, PayInterface{
 
-    var userId : Int = 0
+    var userId1 : Int = 0
     var deliveryAddressId : Int = 1
     var deliveryRequest : String = ""
     var commisionPrice : Int = 0
@@ -37,7 +31,7 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
         super.onResume()
 
         //불러온 데이타
-        userId = ApplicationClass.sSharedPreferences.getInt("userId",0)
+        userId1 = ApplicationClass.sSharedPreferences.getInt("userId",0)
         val productId = intent.getIntExtra("productId",0)
         val imageuri = intent.getStringExtra("imageuri")
         val price = intent.getStringExtra("price")
@@ -85,15 +79,14 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
                 finalPrice = finalPrice,
                 paymentMethod = paymentMethod,
                 usedPoint = usedPoint,
-                userId = userId
+                userId = userId1
             )
-            Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ", userId.toString())
+            Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ", userId1.toString())
             Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ", ApplicationClass.sSharedPreferences.getString(ApplicationClass.X_ACCESS_TOKEN,null).toString())
             Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ", P.toString())
             Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ", productId.toString())
             PayService(this).tryPostPay(P,productId.toString())
 //            startActivity(Intent(this, MainActivity::class.java))
-            finish()
         }
     }
 
@@ -118,10 +111,14 @@ class PayActivity : BaseActivity<ActivityPayBinding>(ActivityPayBinding::inflate
     }
 
     override fun onPostPaySuccess(response: PayResponse) {
+        showCustomToast("결제완료")
         Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ",response.message.toString())
+        finish()
     }
 
     override fun onPostPayFailure(message: String) {
+        showCustomToast("message")
         Log.d("QQQQQQQQQQQQQQQQQQQQQQQQ",message)
+        finish()
     }
 }
